@@ -494,6 +494,9 @@ main {
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
+.hidden {
+  display: none;
+}
 
 .about .article-title { margin-bottom: 15px; }
 
