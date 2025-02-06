@@ -540,9 +540,13 @@ main {
   z-index: -1;
 }
 
-.service-icon-box { margin-bottom: 10px; }
+.service-icon-box { margin-bottom: 20px;
+  color: var(--orange-yellow-crayola);
+ }
 
-.service-icon-box img { margin: auto; }
+.service-icon-box img { margin: auto; 
+  color: var(--orange-yellow-crayola);
+}
 
 .service-content-box { text-align: center; }
 
