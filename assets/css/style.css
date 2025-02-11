@@ -4,10 +4,41 @@
 
 
 /**
- * copyright 2022 @codewithsadee
+ 
  */
 
 
+/* Conteneur principal */
+.carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: black; /* Ajoute temporairement un fond pour voir si le style s'applique */
+}
+
+/* Liste des logos */
+.carousel-track {
+    display: flex;
+    gap: 30px; /* Espacement entre les logos */
+    animation: scroll 15s linear infinite;
+    width: max-content;
+}
+
+/* Style des logos */
+.clients-item img {
+    height: 80px; /* Ajuste selon tes besoins */
+    max-width: 100px;
+}
+
+/* Animation */
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
 
 
 
