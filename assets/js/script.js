@@ -134,6 +134,28 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const track = document.querySelector(".carousel-track");
+    const items = document.querySelectorAll(".clients-item");
+    
+    let cloneItems = track.innerHTML; // Clone les éléments existants
+    track.innerHTML += cloneItems; // Ajoute les clones pour une boucle infinie
+
+    let speed = 1; // Vitesse du défilement
+    let position = 0;
+
+    function animate() {
+        position -= speed;
+        if (position <= -track.scrollWidth / 2) {
+            position = 0;
+        }
+        track.style.transform = `translateX(${position}px)`;
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+});
+
 
 
 // page navigation variables
