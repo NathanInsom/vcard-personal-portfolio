@@ -338,37 +338,6 @@ main {
 }
 
 
-/* Conteneur principal */
-.carousel {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-/* Liste des éléments à faire défiler */
-.carousel-track {
-    display: flex;
-    gap: 30px; /* Espacement entre les logos */
-    animation: scroll 15s linear infinite; /* Animation fluide */
-    width: max-content;
-}
-
-
-/* Style des logos */
-.clients-item img {
-    height: 80px; /* Ajuste selon tes besoins */
-    max-width: 100px; /* Empêche les images d'être trop grandes */
-}
-
-/* Animation du carrousel */
-@keyframes scroll {
-    from {
-        transform: translateX(0%);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 
 
 
