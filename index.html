@@ -1172,18 +1172,7 @@
 
 
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-      const list = document.querySelector(".clients-list");
-      const items = document.querySelectorAll(".clients-item");
 
-      // Dupliquer les logos pour un effet de boucle continue
-      items.forEach(item => {
-          const clone = item.cloneNode(true);
-          list.appendChild(clone);
-      });
-  });
-</script>
 
 
 
@@ -1198,7 +1187,23 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+   document.addEventListener("DOMContentLoaded", function () {
+      const list = document.querySelector(".clients-list");
+      const items = Array.from(document.querySelectorAll(".clients-item"));
+
+      // Dupliquer les logos pour un effet de boucle continue
+      items.forEach(item => {
+          const clone = item.cloneNode(true);
+          list.appendChild(clone);
+      });
+
+      // Ajoute la classe pour démarrer l'animation
+      setTimeout(() => {
+          list.classList.add("moving");
+      }, 100); // Petit délai pour s'assurer que les images sont bien clonées
+  });
+ </script>
 
 </body>
-
 </html>
