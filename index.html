@@ -1225,6 +1225,20 @@
 
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const list = document.querySelector(".clients-list");
+      const items = document.querySelectorAll(".clients-item");
+
+      // Dupliquer les logos pour un effet de boucle continue
+      items.forEach(item => {
+          const clone = item.cloneNode(true);
+          list.appendChild(clone);
+      });
+  });
+</script>
+</body>
+</html>
 
 
 
