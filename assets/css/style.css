@@ -735,32 +735,26 @@ main {
  * #clients 
  */
 
-.clients { 
-  margin-bottom: 15px; 
+.clients {
+  margin-bottom: 15px;
 }
 
 .clients-list {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 15px;
-  margin: 0 -15px;
   padding: 25px;
   overflow: hidden; /* Empêche le scroll manuel */
-  white-space: nowrap;
+  white-space: nowrap; /* Empêche les éléments de passer à la ligne */
   position: relative;
-  scroll-snap-type: none; /* Désactivation du snap pour l'animation fluide */
-  animation: scroll 15s linear infinite;
 }
 
 .clients-item {
-  flex: 0 0 auto; /* Empêche les éléments de se redimensionner */
+  flex: 0 0 auto; /* Empêche les éléments de changer de taille */
   min-width: auto; /* Ajustement automatique de la largeur */
 }
 
 .clients-item img {
-  width: auto;
-  height: 80px; /* Ajuste la hauteur pour un affichage uniforme */
+  height: 80px; /* Ajuste la hauteur des images */
   transition: var(--transition-1);
 }
 
@@ -770,9 +764,15 @@ main {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
+
+.clients-list {
+  display: flex;
+  animation: scroll 15s linear infinite;
+}
+
 
 
 
