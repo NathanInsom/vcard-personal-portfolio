@@ -307,6 +307,21 @@ main {
 }
 
 
+/* Conteneur principal */
+.carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Liste des éléments à faire défiler */
+.carousel-track {
+    display: flex;
+    gap: 30px; /* Espacement entre les logos */
+    animation: scroll 15s linear infinite; /* Animation fluide */
+    width: max-content;
+}
+
 
 
 
