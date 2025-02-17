@@ -735,50 +735,38 @@ main {
  * #clients 
  */
 
-.clients {
-  margin-bottom: 15px;
-}
+.clients { margin-bottom: 15px; }
 
 .clients-list {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 15px;
+  margin: 0 -15px;
   padding: 25px;
-  overflow: hidden; /* Empêche le scroll manuel */
-  white-space: nowrap; /* Empêche les éléments de passer à la ligne */
-  position: relative;
+  padding-bottom: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 25px;
 }
 
 .clients-item {
-  flex: 0 0 auto; /* Empêche les éléments de changer de taille */
-  min-width: auto; /* Ajustement automatique de la largeur */
+  min-width: 50%;
+  scroll-snap-align: start;
 }
 
 .clients-item img {
-  height: 80px; /* Ajuste la hauteur des images */
+  width: 100%;
   transition: var(--transition-1);
+
+  /* Assure-toi qu'il n'y a pas de filtre appliqué */
+  filter: none !important; 
+
+  /* Vérifie que l'opacité est bien à 1 */
+  opacity: 1 !important;
 }
-
-/* Animation du défilement */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Applique l'animation après duplication des images */
-.clients-list.moving {
-  animation: scroll 15s linear infinite;
-}
-
-
-
-
-
-
-
 /*-----------------------------------*\
   #RESUME
 \*-----------------------------------*/
