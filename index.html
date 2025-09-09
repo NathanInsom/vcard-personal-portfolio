@@ -1,1208 +1,406 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Portfolio | BTS SIO SISR</title>
+    <meta name="description" content="Portfolio BTS SIO SISR - Accueil, À propos et Compétences." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@nboulange - Portfolio</title>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="brand" aria-label="Accueil">
+          <span class="brand-mark">⚡</span>
+          <span class="brand-text">Mon Portfolio</span>
+        </a>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+        <nav class="nav" aria-label="Navigation principale">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+          <ul id="primary-menu" class="nav-list">
+            <li><a href="#a-propos">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
+      </div>
+    </header>
 
-<body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/monavatar.png" alt="Nathan BOULANGE" width="60">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Nathan BOULANGE</h1>
-
-          <p class="title">⚙️👨🏼‍💻 Administrateur Système et Réseaux </p>
+    <main id="main">
+      <section class="hero section">
+        <div class="container grid-2">
+          <div class="hero-text reveal">
+            <span class="overline">Portfolio BTS SIO — SISR</span>
+            <h1>BTS SIO SISR</h1>
+            <p class="subtitle">Salut ! Je suis <strong>Nathan</strong>, étudiant en <strong>BTS SIO - SISR</strong>. Passionné d’infra, réseau et sécurité, je conçois des systèmes fiables, documentés et sécurisés.</p>
+            <div class="chips">
+              <span class="chip">Infra</span>
+              <span class="chip">Réseau</span>
+              <span class="chip">Sécurité</span>
+              <span class="chip">Automatisation</span>
+            </div>
+            <div class="hero-cta">
+              <a class="btn primary" href="#competences">Voir mes compétences</a>
+              <a class="btn ghost" href="#a-propos">En savoir plus</a>
+            </div>
+          </div>
+          <div class="hero-art reveal delay-1" aria-hidden="true">
+            <div class="circle"></div>
+            <div class="blob"></div>
+            <div class="mesh"></div>
+          </div>
         </div>
+      </section>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Contacte</span>
+      <div class="section-divider" aria-hidden="true"></div>
 
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
+      <section id="a-propos" class="section about">
+        <div class="container grid-2">
+          <div class="about-photo reveal">
+            <div class="avatar" role="img" aria-label="Photo de profil"></div>
+          </div>
+          <div class="about-text reveal delay-1">
+            <span class="overline">Qui je suis</span>
+            <h2>À propos</h2>
+            <p class="section-subtitle">Curieux et orienté solution, j’aime automatiser, documenter et renforcer la résilience des systèmes.</p>
+            <ul class="about-highlights">
+              <li>Administration systèmes et réseaux</li>
+              <li>Automatisation avec scripts et outils DevOps</li>
+              <li>Documentation claire et partage de connaissances</li>
+            </ul>
+            <a class="btn" href="#contact">Me contacter</a>
+          </div>
+        </div>
+      </section>
 
-      </div>
+      <section id="competences" class="section skills">
+        <div class="container">
+          <span class="overline reveal">Ce que je sais faire</span>
+          <h2 class="reveal">Compétences</h2>
+          <p class="section-subtitle reveal">Un mix orienté SISR: réseau, systèmes, automatisation et sécurité.</p>
+          <div class="skills-grid">
+            <article class="skill-card glass reveal">
+              <div class="skill-head">
+                <div class="title">
+                  <span class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="6" r="3"></circle>
+                      <circle cx="18" cy="18" r="3"></circle>
+                      <path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4"/>
+                    </svg>
+                  </span>
+                  <h3>Réseau & Infra</h3>
+                </div>
+                <span class="badge">SISR</span>
+              </div>
+              <p>Routage, VLAN, DHCP/DNS, supervision et durcissement.</p>
+              <div class="meter" data-skill="85">
+                <span style="width: 85%"></span>
+              </div>
+            </article>
 
-      <div class="sidebar-info_more">
+            <article class="skill-card glass reveal delay-1">
+              <div class="skill-head">
+                <div class="title">
+                  <span class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
+                      <path d="M8 20h8M12 16v4"/>
+                    </svg>
+                  </span>
+                  <h3>Linux & Windows</h3>
+                </div>
+                <span class="badge">Admin</span>
+              </div>
+              <p>Gestion utilisateurs, services, sauvegardes et monitoring.</p>
+              <div class="meter" data-skill="80">
+                <span style="width: 80%"></span>
+              </div>
+            </article>
 
-        <div class="separator"></div>
+            <article class="skill-card glass reveal delay-2">
+              <div class="skill-head">
+                <div class="title">
+                  <span class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 17.5A4.5 4.5 0 0 0 17 9h-1.1A6 6 0 1 0 4 15.5"></path>
+                      <path d="M16 16h3M14 19h5"/>
+                    </svg>
+                  </span>
+                  <h3>Virtualisation & Cloud</h3>
+                </div>
+                <span class="badge">DevOps</span>
+              </div>
+              <p>VMware/Proxmox, Docker, notions d'AWS/Azure, IaC.</p>
+              <div class="meter" data-skill="70">
+                <span style="width: 70%"></span>
+              </div>
+            </article>
 
-        <ul class="contacts-list">
+            <article class="skill-card glass reveal delay-3">
+              <div class="skill-head">
+                <div class="title">
+                  <span class="skill-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 8l-4 4 4 4"/>
+                      <path d="M17 8l4 4-4 4"/>
+                      <path d="M14 4L10 20"/>
+                    </svg>
+                  </span>
+                  <h3>Scripting</h3>
+                </div>
+                <span class="badge">Automatisation</span>
+              </div>
+              <p>Bash, PowerShell, bases Python pour outillage.</p>
+              <div class="meter" data-skill="75">
+                <span style="width: 75%"></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <li class="contact-item">
+      <div class="section-divider" aria-hidden="true"></div>
 
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+      <section id="outils" class="section tools">
+        <div class="container">
+          <span class="overline reveal">Stack</span>
+          <h2 class="reveal">Outils</h2>
+          <p class="section-subtitle reveal">Technos et plateformes que j’utilise régulièrement.</p>
+          <div class="tools-grid">
+            <div class="tool-badge reveal" title="Active Directory">
+              <img alt="AD" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" width="28" height="28" />
+              <span>Active Directory</span>
             </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:contact@nboulange.work" class="contact-link">contact@nboulange.work</a>
+            <div class="tool-badge reveal delay-1" title="pfSense">
+              <img alt="pfSense" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/PfSense_logo.png" width="28" height="28" />
+              <span>pfSense</span>
             </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
+            <div class="tool-badge reveal delay-2" title="Docker">
+              <img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="28" height="28" />
+              <span>Docker</span>
             </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Téléphone</p>
-
-              <a href="tel:+330785872113" class="contact-link">07 85 87 21 13</a>
+            <div class="tool-badge reveal delay-3" title="Proxmox">
+              <img alt="Proxmox" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Proxmox_logo.png" width="28" height="28" />
+              <span>Proxmox</span>
             </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
+            <div class="tool-badge reveal delay-3" title="PowerShell">
+              <img alt="PowerShell" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="28" height="28" />
+              <span>PowerShell</span>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="contact-info">
-              <p class="contact-title">Anniversaire</p>
+      <div class="section-divider" aria-hidden="true"></div>
 
-              <time datetime="1982-06-23">1er Septembre, 2006</time>
+      <section id="synthese" class="section synthesis">
+        <div class="container">
+          <span class="overline reveal">BTS SIO</span>
+          <h2 class="reveal">Tableau de synthèse</h2>
+          <p class="section-subtitle reveal">Intégration du tableau Excel (E6).</p>
+          <div class="synthesis-embed glass reveal" role="region" aria-label="Tableau de synthèse" id="synthesisEmbed">
+            <div class="synthesis-placeholder">
+              <p class="muted">📁 Nathan Tableau de synthèse - Epreuve E4 - BTS SIO 2024</p>
+              <a class="btn small" href="VOTRE_URL_DE_PARTAGE_EXCEL" target="_blank" rel="noreferrer noopener">Ouvrir le tableau</a>
             </div>
+            <!-- Si vous avez un lien Excel/OneDrive/Google Sheets avec l’option d’intégration, remplacez l’iframe ci-dessous -->
+            <iframe title="Tableau de synthèse" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQJA5uGquWlWSOWBc9nm6apLPMR-nIC0eCzPIxIuxHwPjA0LOhDWGaNIEsAAxtqOrFCnfJeKKB3hzK/pubhtml?gid=380404330&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+          </div>
+        </div>
+      </section>
 
-          </li>
+      <div class="section-divider" aria-hidden="true"></div>
 
-          <li class="contact-item">
+      <section id="certifications" class="section certs">
+        <div class="container">
+          <span class="overline reveal">Parcours</span>
+          <h2 class="reveal">Certifications</h2>
+          <p class="section-subtitle reveal">Des bases solides et des validations officielles pour le SISR.</p>
+          <div class="certs-grid">
+            <article class="cert-card glass reveal">
+              <div class="cert-head">
+                <div class="title">
+                  <span class="cert-icon" aria-hidden="true">🎓</span>
+                  <h3>IT Essentials</h3>
+                </div>
+                <span class="badge">Cisco</span>
+              </div>
+              <p class="muted">Matériel, OS, réseaux et dépannage.</p>
+              <div class="cert-meta"><span>2024</span><span class="tag">Réseau</span></div>
+              <div class="cert-actions" style="margin-top:10px;">
+                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Lien</a>
+              </div>
+            </article>
 
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
+            <article class="cert-card glass reveal delay-1">
+              <div class="cert-head">
+                <div class="title">
+                  <span class="cert-icon" aria-hidden="true">🛡️</span>
+                  <h3>Introduction à la cybersécurité</h3>
+                </div>
+                <span class="badge">Cisco</span>
+              </div>
+              <p class="muted">Principes, menaces et bonnes pratiques.</p>
+              <div class="cert-meta"><span>2024</span><span class="tag">Sécurité</span></div>
+              <div class="cert-actions" style="margin-top:10px;">
+                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Lien</a>
+              </div>
+            </article>
 
-            <div class="contact-info">
-              <p class="contact-title">Localisation</p>
+            <article class="cert-card glass reveal delay-2">
+              <div class="cert-head">
+                <div class="title">
+                  <span class="cert-icon" aria-hidden="true">⚙️</span>
+                  <h3>Linux Essentials</h3>
+                </div>
+                <span class="badge">LPI</span>
+              </div>
+              <p class="muted">CLI, fichiers, permissions et processus.</p>
+              <div class="cert-meta"><span>2025</span><span class="tag">Linux</span></div>
+              <div class="cert-actions" style="margin-top:10px;">
+                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Lien</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-              <address>Lille, Nord. France</address>
-            </div>
+      <div class="section-divider" aria-hidden="true"></div>
 
-          </li>
+      <section id="projets" class="section projects">
+        <div class="container">
+          <span class="overline reveal">Sélection E6</span>
+          <h2 class="reveal">Projets / Réalisations</h2>
+          <p class="section-subtitle reveal">Fiches prêtes pour l’épreuve E6: contexte, objectifs, architecture, sécurité, résultats, preuves.</p>
+          <div class="projects-grid">
+            <article class="project-card glass reveal" data-project-id="ad-gpo">
+              <div class="project-media">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Active Directory et GPO baselines" loading="lazy" decoding="async" width="800" height="450" />
+                <div class="media-overlay">
+                  <header>
+                    <h3>Infra AD DS + GPO baselines</h3>
+                    <span class="badge">Cours / 2024</span>
+                  </header>
+                  <div class="tags floating">
+                    <span class="tag">E6</span><span class="tag">SISR</span><span class="tag">Sécurité</span>
+                  </div>
+                </div>
+              </div>
+              <p class="muted">Objectif: centraliser l'authentification et standardiser la sécurité poste.</p>
+              <a class="btn small" href="projects/ad-gpo.html">Voir la fiche</a>
+            </article>
 
-        </ul>
+            <article class="project-card glass reveal delay-1" data-project-id="vlan-firewall">
+              <div class="project-media">
+                <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Segmentation VLAN et pare-feu" loading="lazy" decoding="async" width="800" height="450" />
+                <div class="media-overlay">
+                  <header>
+                    <h3>Segmentation VLAN + Pare-feu</h3>
+                    <span class="badge">Perso / 2024</span>
+                  </header>
+                  <div class="tags floating">
+                    <span class="tag">E6</span><span class="tag">Réseau</span><span class="tag">Firewall</span>
+                  </div>
+                </div>
+              </div>
+              <p class="muted">Objectif: isoler les réseaux et contrôler les flux Est-Ouest.</p>
+              <a class="btn small" href="projects/vlan-firewall.html">Voir la fiche</a>
+            </article>
 
-        <div class="separator"></div>
+            <article class="project-card glass reveal delay-2" data-project-id="pw-rotation">
+              <div class="project-media">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Rotation des mots de passe par script PowerShell" loading="lazy" decoding="async" width="800" height="450" />
+                <div class="media-overlay">
+                  <header>
+                    <h3>Rotation mots de passe (PowerShell)</h3>
+                    <span class="badge">Pro / 2025</span>
+                  </header>
+                  <div class="tags floating">
+                    <span class="tag">E6</span><span class="tag">Automatisation</span><span class="tag">AD</span>
+                  </div>
+                </div>
+              </div>
+              <p class="muted">Objectif: automatiser la rotation sécurisée et tracer les changements.</p>
+              <a class="btn small" href="projects/pw-rotation.html">Voir la fiche</a>
+            </article>
 
-        <ul class="social-list">
+            <article class="project-card glass reveal delay-3" data-project-id="backup-restore">
+              <div class="project-media">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Sauvegardes et restauration testée" loading="lazy" decoding="async" width="800" height="450" />
+                <div class="media-overlay">
+                  <header>
+                    <h3>Sauvegardes + Restauration testée</h3>
+                    <span class="badge">Cours / 2025</span>
+                  </header>
+                  <div class="tags floating">
+                    <span class="tag">E6</span><span class="tag">PRA</span><span class="tag">Backup</span>
+                  </div>
+                </div>
+              </div>
+              <p class="muted">Objectif: assurer la reprise après incident avec tests réguliers.</p>
+              <a class="btn small" href="projects/backup-restore.html">Voir la fiche</a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <li class="social-item">
-            <a href="https://github.com/Nathaninsom" target="_blank" rel="noopener noreferrer" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
+      <section id="contact" class="section contact">
+        <div class="container reveal">
+          <h2>Contact</h2>
+          <p>Intéressé(e) par mon profil ? Écrivez-moi :</p>
+          <a class="btn primary" href="mailto:prenom.nom@email.fr">Envoyer un mail</a>
+        </div>
+      </section>
+    </main>
 
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noopener noreferrer"
-              class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://discord.com/users/651202869743190016" target="_blank" rel="noopener noreferrer"
-              class="social-link">
-              <ion-icon name="logo-discord"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">À propos de moi </h2>
+    <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-dialog" role="document">
+        <button class="modal-close" aria-label="Fermer" data-close>✕</button>
+        <header class="modal-header">
+          <h3 id="modalTitle"></h3>
+          <div class="badge" id="modalContext"></div>
         </header>
-
-        <section class="about-text">
-          <p>
-            Je suis Administrateur Système et Réseau en alternance à l’AFPI, spécialisé dans la gestion, l’optimisation
-            et la sécurisation des infrastructures IT.
-            Mon travail consiste à assurer la stabilité, la performance et la résilience des serveurs, tout en
-            garantissant un environnement fiable pour les utilisateurs et les applications.
-          </p>
-
-          <p>
-            Bien que mon cœur de métier soit centré sur les systèmes et réseaux, ma polyvalence me permet d’explorer
-            d’autres domaines, notamment le développement web.
-            J’aime comprendre et optimiser l’ensemble de l’écosystème technologique, en alliant gestion des
-            infrastructures et automatisation des processus pour améliorer l’efficacité.
-          </p>
-
-          </p>
-          Mon objectif est d’apporter des solutions adaptées et performantes, en m’assurant que chaque système
-          fonctionne de manière fluide et sécurisée.
-          Passionné par la technologie, je suis toujours en quête d’apprentissage et de nouvelles opportunités pour
-          évoluer dans ce domaine en constante innovation.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Mes tâches</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/monitor-cog.svg
-                " alt="écran icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Administration Système & Réseau</h4>
-
-                <p class="service-item-text">
-                  Assurer la gestion, la maintenance et l’optimisation des infrastructures IT pour garantir performance,
-                  stabilité et sécurité.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/server.svg" alt="server icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Gestion des Serveurs</h4>
-
-                <p class="service-item-text">
-                  Déploiement, configuration et supervision des serveurs pour assurer un fonctionnement fluide et
-                  sécurisé des systèmes.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/iconcpu.svg" alt="icon cpu" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Automatisation & Optimisation</h4>
-
-                <p class="service-item-text">
-                  Mise en place de solutions automatisées pour améliorer l’efficacité des processus et la gestion des
-                  infrastructures.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/code-xml.svg" alt="code icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Polyvalence & Développement Web</h4>
-
-                <p class="service-item-text">
-                  Bien que spécialisé en administration système, je suis capable de concevoir et déployer des sites web
-                  performants et optimisés.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-        <style>
-          .hidden {
-            display: none;
-          }
-        </style>
-        <!--
-  ============================
-       Section Testimonials
-  ============================
-  Cette section est masquée grâce à la classe "hidden" appliquée directement sur la balise <section>.
--->
-        <section class="testimonials hidden">
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet,
-                    ullamcous
-                    cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore
-                    magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet,
-                    ullamcous
-                    cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore
-                    magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet,
-                    ullamcous
-                    cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore
-                    magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet,
-                    ullamcous
-                    cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore
-                    magnarels alia.
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <!--
-  ============================
-       Testimonials Modal
-  ============================
-  Cette boîte modale est également masquée via la classe "hidden".
--->
-        <div class="modal-container hidden" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-              <time datetime="2021-06-14">14 June, 2021</time>
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience and is very concerned about the needs of client. Lorem ipsum dolor sit amet,
-                  ullamcous
-                  cididt consectetur adipiscing elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels
-                  alia.
-                </p>
-              </div>
-            </div>
-          </section>
+        <div class="modal-content">
+          <div class="modal-row"><strong>Contexte</strong><p id="modalContexte" class="muted"></p></div>
+          <div class="modal-row"><strong>Objectif / Besoin</strong><p id="modalObjectif"></p></div>
+          <div class="modal-row"><strong>Architecture</strong><div id="modalArch" class="arch-diagram" aria-label="Schéma réseau simplifié"></div></div>
+          <div class="modal-row"><strong>Actions clés</strong><ul id="modalActions" class="bullets"></ul></div>
+          <div class="modal-row"><strong>Sécurité</strong><ul id="modalSecu" class="bullets"></ul></div>
+          <div class="modal-row"><strong>Résultats & indicateurs</strong><ul id="modalResults" class="bullets"></ul></div>
+          <div class="modal-row"><strong>Évidences</strong><ul id="modalEvidence" class="bullets"></ul></div>
+          <div class="modal-row"><strong>Compétences visées</strong><div id="modalTags" class="tags"></div></div>
         </div>
-
-
-      <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Mes Software</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo1app.png" alt="app logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="app logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="app logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="app logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="app logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="app logo">
-              </a>
-            </li>
-
-       <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-7-color.png" alt="app logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-
-
-        <!--
-        - #RESUME
-      -->
-
-        <article class="resume" data-page="resume">
-
-          <header>
-            <h2 class="h2 article-title">📈 Parcours</h2>
-          </header>
-
-          <section class="timeline">
-
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Education</h3>
-            </div>
-
-            <ol class="timeline-list">
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">AFPI ACM FORMATION - Marcq-en-Barœul</h4>
-
-                <span>2024 — 2026</span>
-
-                <p class="timeline-text">
-                 Je réalise en ce moment un BTS SIO SISR en Alternance en 1 ère année 
-
-                </p>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Lycée César Baggio - Lille </h4>
-
-                <span>2021 — 2024</span>
-
-                <p class="timeline-text">
-                 J'ai éffectué dans ce lycéee un Bac PRO SIO SISR avec une Mention Bien 
-                </p>
-
-              </li>
-
-
-            </ol>
-
-          </section>
-
-          <section class="timeline">
-
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Experience</h3>
-            </div>
-
-            <ol class="timeline-list">
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Administrateur Système et Réseaux</h4>
-
-                <span>2024 — 2026</span>
-
-                <p class="timeline-text">
-                  AFPI - ACM FORMATION 
-                  Marcq-en-baroeul
-                  Période : 2 ans 
-                </p>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Technicien en système de sûreté</h4>
-
-                <span>2024</span>
-
-                <p class="timeline-text">
-                  HOROQUARTZ
-                  Marcq-en-baroeul
-                  Période : 1 mois
-                </p>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Technicien support informatique et sur site</h4>
-
-                <span>2023</span>
-
-                <p class="timeline-text">
-                  A3SYS
-                  Orchies
-                  Période : 1 mois
-                </p>
-
-              </li>
-
-              <li class="timeline-item">
-
-                <h4 class="h4 timeline-item-title">Éléctricien</h4>
-
-                <span>2022-2024</span>
-
-                <p class="timeline-text">
-                  Electro-sys
-                  Avelin
-                  Périodes : 3 mois divisé au fil des annés en job d'été
-                </p>
-
-              </li>
-
-            </ol>
-
-          </section>
-
-          <section class="skill">
-
-            <h3 class="h3 skills-title">Mes compétences</h3>
-
-            <ul class="skills-list content-card">
-
-              <li class="skills-item">
-
-                <div class="title-wrapper">
-                  <h5 class="h5">??</h5>
-                  <data value="80">80%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 80%;"></div>
-                </div>
-
-              </li>
-
-              <li class="skills-item">
-
-                <div class="title-wrapper">
-                  <h5 class="h5">??</h5>
-                  <data value="70">70%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 70%;"></div>
-                </div>
-
-              </li>
-
-              <li class="skills-item">
-
-                <div class="title-wrapper">
-                  <h5 class="h5">??</h5>
-                  <data value="90">90%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 90%;"></div>
-                </div>
-
-              </li>
-
-              <li class="skills-item">
-
-                <div class="title-wrapper">
-                  <h5 class="h5">??</h5>
-                  <data value="50">50%</data>
-                </div>
-
-                <div class="skill-progress-bg">
-                  <div class="skill-progress-fill" style="width: 50%;"></div>
-                </div>
-
-              </li>
-
-            </ul>
-
-          </section>
-
-        </article>
-
-
-
-
-
-        <!--
-        - #PORTFOLIO
-      -->
-
-        <article class="portfolio" data-page="portfolio">
-
-          <header>
-            <h2 class="h2 article-title">Portfolio</h2>
-          </header>
-
-          <section class="projects">
-
-            <ul class="filter-list">
-
-              <li class="filter-item">
-                <button class="active" data-filter-btn>All</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Web design</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Applications</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Web development</button>
-              </li>
-
-            </ul>
-
-            <div class="filter-select-box">
-
-              <button class="filter-select" data-select>
-
-                <div class="select-value" data-selecct-value>Select category</div>
-
-                <div class="select-icon">
-                  <ion-icon name="chevron-down"></ion-icon>
-                </div>
-
-              </button>
-
-              <ul class="select-list">
-
-                <li class="select-item">
-                  <button data-select-item>All</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Web design</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Applications</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Web development</button>
-                </li>
-
-              </ul>
-
-            </div>
-
-            <ul class="project-list">
-
-              <li class="project-item  active" data-filter-item data-category="web development">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Finance</h3>
-
-                  <p class="project-category">Web development</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web development">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Orizon</h3>
-
-                  <p class="project-category">Web development</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web design">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Fundo</h3>
-
-                  <p class="project-category">Web design</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="applications">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Brawlhalla</h3>
-
-                  <p class="project-category">Applications</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web design">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">DSM.</h3>
-
-                  <p class="project-category">Web design</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web design">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">MetaSpark</h3>
-
-                  <p class="project-category">Web design</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web development">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Summary</h3>
-
-                  <p class="project-category">Web development</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="applications">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Task Manager</h3>
-
-                  <p class="project-category">Applications</p>
-
-                </a>
-              </li>
-
-              <li class="project-item  active" data-filter-item data-category="web development">
-                <a href="#">
-
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="eye-outline"></ion-icon>
-                    </div>
-
-                    <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                  </figure>
-
-                  <h3 class="project-title">Arrival</h3>
-
-                  <p class="project-category">Web development</p>
-
-                </a>
-              </li>
-
-            </ul>
-
-          </section>
-
-        </article>
-
-
-
-
-
-        <!--
-        - #BLOG
-      -->
-
-        <article class="blog" data-page="blog">
-
-          <header>
-            <h2 class="h2 article-title">Blog</h2>
-          </header>
-
-          <section class="blog-posts">
-
-            <ul class="blog-posts-list">
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                    <p class="blog-text">
-                      Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                    <p class="blog-text">
-                      Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                    <p class="blog-text">
-                      Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis
-                      suscipit.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                    <p class="blog-text">
-                      Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                    <p class="blog-text">
-                      Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a href="#">
-
-                  <figure class="blog-banner-box">
-                    <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                  </figure>
-
-                  <div class="blog-content">
-
-                    <div class="blog-meta">
-                      <p class="blog-category">Design</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2022-02-23">Fab 23, 2022</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                    <p class="blog-text">
-                      Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                    </p>
-
-                  </div>
-
-                </a>
-              </li>
-
-            </ul>
-
-          </section>
-
-        </article>
-
-
-
-
-
-        <!--
-        - #CONTACT
-      -->
-
-        <article class="contact" data-page="contact">
-
-          <header>
-            <h2 class="h2 article-title">Contact</h2>
-          </header>
-
-          <section class="mapbox" data-mapbox>
-            <figure>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-                width="400" height="300" loading="lazy"></iframe>
-            </figure>
-          </section>
-
-          <section class="contact-form">
-
-            <h3 class="h3 form-title">Contact Form</h3>
-
-            <form action="#" class="form" data-form>
-
-              <div class="input-wrapper">
-                <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-                <input type="email" name="email" class="form-input" placeholder="Email address" required
-                  data-form-input>
-              </div>
-
-              <textarea name="message" class="form-input" placeholder="Your Message" required
-                data-form-input></textarea>
-
-              <button class="form-btn" type="submit" disabled data-form-btn>
-                <ion-icon name="paper-plane"></ion-icon>
-                <span>Send Message</span>
-              </button>
-
-            </form>
-
-          </section>
-
-        </article>
-
+        <footer class="modal-footer">
+          <a id="modalDocLink" class="btn primary" href="#" target="_blank" rel="noreferrer noopener">Voir la documentation complète</a>
+        </footer>
+      </div>
     </div>
 
-  </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© <span id="year"></span> Votre Nathan BOULANGE — BTS SIO SISR</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+  </html>
 
 
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      const list = document.querySelector(".clients-list");
-      const items = Array.from(document.querySelectorAll(".clients-item"));
-
-      // Dupliquer les logos pour un effet de boucle continue
-      items.forEach(item => {
-          const clone = item.cloneNode(true);
-          list.appendChild(clone);
-      });
-
-      // Ajoute la classe pour démarrer l'animation
-      setTimeout(() => {
-          list.classList.add("moving");
-      }, 100); // Petit délai pour s'assurer que les images sont bien clonées
-  });
- </script>
-
-</body>
-</html>

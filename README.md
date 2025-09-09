@@ -1,38 +1,35 @@
-# 🖥️ **Portfolio de Nathan**
+# Portfolio BTS SIO SISR
 
-![Logo](lien-vers-ton-logo.png)
+Une page d'accueil moderne et responsive en HTML5/CSS/JS pour présenter votre profil (À propos, Compétences et Contact) avec thème clair/sombre, navigation mobile et animations.
 
-Bienvenue sur mon portfolio ! Ce site est un projet personnel que j'ai créé pour présenter mes compétences et mon parcours professionnel en tant qu'Administrateur Système et Réseaux. Vous trouverez ici des informations sur mes projets, mon CV, ainsi que des moyens de me contacter.
+## Démarrage
 
-Vous pouvez consulter mon portfolio en ligne à l'adresse suivante : [https://nboulange.work](https://nboulange.work)
+Ouvrez `index.html` dans votre navigateur. Aucun build n'est nécessaire.
 
----
+## Personnalisation rapide
 
-## 🔍 **Description**
+- Remplacez "Votre Nom" dans `index.html`.
+- Mettez votre email dans le bouton Contact.
+- Changez la photo de profil dans `assets/css/style.css` (propriété `background` de `.about .avatar`).
+- Ajoutez/éditez des compétences en dupliquant une `skill-card` dans la section Compétences.
 
-Ce portfolio présente mes réalisations en tant qu'Administrateur Système et Réseaux et développeur web. Mon objectif avec ce projet est de montrer mes compétences dans les domaines suivants :
+## Rédiger vos Projets (E6-ready)
 
-- **Administration Système et Réseaux** : gestion des serveurs, configuration réseau, sécurité.
-- **Développement Web** : création de sites web responsives avec HTML, CSS, JavaScript.
-  
-Le portfolio est conçu pour être une vitrine de mon parcours et de mes projets personnels, tout en étant un support pour les entreprises ou recruteurs souhaitant voir mes compétences en action.
+Les cartes se trouvent dans `index.html` (section `#projets`) mais le détail affiché dans la modale est alimenté par un tableau dans `assets/js/main.js` (const `projects`). Pour chaque projet, remplissez les champs:
 
----
+- `id`, `title`, `context`
+- `contexte`, `objectif`
+- `architecture` (liste)
+- `actions`, `securite`, `resultats`, `evidence` (listes)
+- `tags` (ex: E5/E6, SISR, Réseau, Sécurité)
+- `doc` (lien vers doc complète: schéma, conf, captures)
 
-## ⚙️ **Technologies utilisées**
+Les fiches sont pensées pour correspondre à la “Fiche descriptive de réalisation professionnelle” (E6, annexe 9-1A).
 
-Voici les technologies que j'ai utilisées pour développer ce portfolio :
+## Structure
 
-- **HTML** : Structure de la page web
-- **CSS** : Mise en page et design
-- **JavaScript** : Interactivité et dynamique du site
-- **GitHub Pages** : Hébergement du portfolio en ligne
-- **Cloudflare** : Optimisation des performances et sécurité du site
+- `index.html` — Accueil, À propos, Compétences, Contact
+- `assets/css/style.css` — Thème, layout, animations
+- `assets/js/main.js` — Menu mobile, thème, animations au scroll
 
----
 
-## 🚀 **Installation**
-
-1. Clonez ce repository sur votre machine locale :
-   ```bash
-   git clone https://github.com/NathanInsom/vcard-personal-portfolio.git
