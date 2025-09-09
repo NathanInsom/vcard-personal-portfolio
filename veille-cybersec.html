@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Veille Cybersécurité & Infrastructure — Nathan BOULANGE</title>
+    <meta name="description" content="Veille technologique détaillée sur la cybersécurité et l'infrastructure - Sources, découvertes et suivi" />
+    <meta name="author" content="Nathan BOULANGE" />
+    <meta name="theme-color" content="#0b0e13" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Veille Cybersécurité & Infrastructure — Nathan BOULANGE" />
+    <meta property="og:description" content="Veille technologique détaillée sur la cybersécurité et l'infrastructure - Sources, découvertes et suivi" />
+    <meta property="og:image" content="assets/img/monavatar.png" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Veille Cybersécurité & Infrastructure — Nathan BOULANGE" />
+    <meta name="twitter:description" content="Veille technologique détaillée sur la cybersécurité et l'infrastructure - Sources, découvertes et suivi" />
+    <meta name="twitter:image" content="assets/img/monavatar.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔒</text></svg>">
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Retour à l'accueil">
+                <span class="brand-mark">⚡</span>
+                <span class="brand-text">nboulange.work</span>
+            </a>
+
+            <nav class="nav" aria-label="Navigation principale">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul id="primary-menu" class="nav-list">
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#competences">Compétences</a></li>
+                    <li><a href="veilles.html">Veilles</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="veille-hero section">
+            <div class="container">
+                <div class="veille-hero-content reveal">
+                    <div class="breadcrumb">
+                        <a href="index.html#veilles">← Retour aux veilles</a>
+                    </div>
+                    <span class="overline">Veille technologique</span>
+                    <h1>Cybersécurité & Infrastructure</h1>
+                    <p class="hero-subtitle">Suivi approfondi des vulnérabilités, bonnes pratiques et évolutions des solutions de sécurité d'infrastructure.</p>
+                    
+                    <div class="veille-status-banner">
+                        <div class="status-indicator active"></div>
+                        <span class="status-text">Veille active</span>
+                        <span class="status-details">• Fréquence : Hebdomadaire • Dernière MAJ : Il y a 2 jours</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <section class="veille-content section">
+            <div class="container">
+                <div class="veille-layout">
+                    <div class="veille-main">
+                        <!-- Sources principales -->
+                        <section class="sources-section reveal">
+                            <h2>Sources principales</h2>
+                            <div class="sources-grid">
+                                <div class="source-card">
+                                    <div class="source-header">
+                                        <div class="source-icon">🛡️</div>
+                                        <div class="source-info">
+                                            <h3>CVE Database</h3>
+                                            <p>Base de données des vulnérabilités</p>
+                                        </div>
+                                        <span class="source-frequency">Quotidien</span>
+                                    </div>
+                                    <div class="source-description">
+                                        <p>Base de données officielle des vulnérabilités et expositions communes (CVE). Source primaire pour le suivi des failles de sécurité.</p>
+                                    </div>
+                                    <div class="source-links">
+                                        <a href="https://cve.mitre.org/" target="_blank" rel="noreferrer noopener" class="btn small">Visiter</a>
+                                        <a href="https://nvd.nist.gov/" target="_blank" rel="noreferrer noopener" class="btn ghost small">NVD</a>
+                                    </div>
+                                </div>
+
+                                <div class="source-card">
+                                    <div class="source-header">
+                                        <div class="source-icon">🇫🇷</div>
+                                        <div class="source-info">
+                                            <h3>ANSSI</h3>
+                                            <p>Autorité nationale de sécurité</p>
+                                        </div>
+                                        <span class="source-frequency">Hebdomadaire</span>
+                                    </div>
+                                    <div class="source-description">
+                                        <p>Agence nationale de la sécurité des systèmes d'information. Recommandations et alertes de sécurité pour la France.</p>
+                                    </div>
+                                    <div class="source-links">
+                                        <a href="https://www.ssi.gouv.fr/" target="_blank" rel="noreferrer noopener" class="btn small">Visiter</a>
+                                        <a href="https://www.cert.ssi.gouv.fr/" target="_blank" rel="noreferrer noopener" class="btn ghost small">CERT-FR</a>
+                                    </div>
+                                </div>
+
+                                <div class="source-card">
+                                    <div class="source-header">
+                                        <div class="source-icon">⚙️</div>
+                                        <div class="source-info">
+                                            <h3>CIS Controls</h3>
+                                            <p>Bonnes pratiques de sécurité</p>
+                                        </div>
+                                        <span class="source-frequency">Mensuel</span>
+                                    </div>
+                                    <div class="source-description">
+                                        <p>Contrôles de sécurité prioritaires du Center for Internet Security. Framework de bonnes pratiques pour la cybersécurité.</p>
+                                    </div>
+                                    <div class="source-links">
+                                        <a href="https://www.cisecurity.org/controls/" target="_blank" rel="noreferrer noopener" class="btn small">Visiter</a>
+                                    </div>
+                                </div>
+
+                                <div class="source-card">
+                                    <div class="source-header">
+                                        <div class="source-icon">🔍</div>
+                                        <div class="source-info">
+                                            <h3>SANS Internet Storm Center</h3>
+                                            <p>Threat Intelligence</p>
+                                        </div>
+                                        <span class="source-frequency">Quotidien</span>
+                                    </div>
+                                    <div class="source-description">
+                                        <p>Centre d'analyse des menaces en temps réel. Rapports quotidiens sur l'état de la sécurité internet.</p>
+                                    </div>
+                                    <div class="source-links">
+                                        <a href="https://isc.sans.edu/" target="_blank" rel="noreferrer noopener" class="btn small">Visiter</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Découvertes récentes -->
+                        <section class="findings-section reveal">
+                            <h2>Découvertes récentes</h2>
+                            <div class="findings-timeline">
+                                <div class="finding-item critical">
+                                    <div class="finding-header">
+                                        <div class="finding-severity critical">Critique</div>
+                                        <div class="finding-date">Il y a 3 jours</div>
+                                    </div>
+                                    <div class="finding-content">
+                                        <h3>CVE-2024-1234 - RCE dans Apache HTTP Server</h3>
+                                        <p>Vulnérabilité critique permettant l'exécution de code à distance dans Apache HTTP Server 2.4.58 et versions antérieures.</p>
+                                        <div class="finding-tags">
+                                            <span class="tag">RCE</span>
+                                            <span class="tag">Apache</span>
+                                            <span class="tag">Critique</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="finding-item medium">
+                                    <div class="finding-header">
+                                        <div class="finding-severity medium">Moyen</div>
+                                        <div class="finding-date">Il y a 1 semaine</div>
+                                    </div>
+                                    <div class="finding-content">
+                                        <h3>Nouvelle technique d'attaque par side-channel</h3>
+                                        <p>Recherche publiée sur une nouvelle méthode d'extraction de clés cryptographiques via l'analyse des fuites électromagnétiques.</p>
+                                        <div class="finding-tags">
+                                            <span class="tag">Cryptographie</span>
+                                            <span class="tag">Side-channel</span>
+                                            <span class="tag">Recherche</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="finding-item low">
+                                    <div class="finding-header">
+                                        <div class="finding-severity low">Faible</div>
+                                        <div class="finding-date">Il y a 2 semaines</div>
+                                    </div>
+                                    <div class="finding-content">
+                                        <h3>Mise à jour des recommandations ANSSI</h3>
+                                        <p>Publication de nouvelles recommandations pour la sécurisation des serveurs web et la gestion des certificats SSL/TLS.</p>
+                                        <div class="finding-tags">
+                                            <span class="tag">ANSSI</span>
+                                            <span class="tag">Recommandations</span>
+                                            <span class="tag">SSL/TLS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="veille-sidebar">
+                        <!-- Métriques -->
+                        <section class="metrics-section reveal">
+                            <h3>Métriques de veille</h3>
+                            <div class="metrics-grid">
+                                <div class="metric-card">
+                                    <div class="metric-icon">📊</div>
+                                    <div class="metric-content">
+                                        <span class="metric-number">47</span>
+                                        <span class="metric-label">Articles lus ce mois</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon">🔍</div>
+                                    <div class="metric-content">
+                                        <span class="metric-number">12</span>
+                                        <span class="metric-label">Vulnérabilités suivies</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-icon">⚡</div>
+                                    <div class="metric-content">
+                                        <span class="metric-number">100%</span>
+                                        <span class="metric-label">À jour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Outils utilisés -->
+                        <section class="tools-section reveal">
+                            <h3>Outils de veille</h3>
+                            <div class="tools-list">
+                                <div class="tool-item">
+                                    <span class="tool-icon">📧</span>
+                                    <span class="tool-name">RSS Feeds</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-icon">🔔</span>
+                                    <span class="tool-name">Alertes Google</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-icon">📱</span>
+                                    <span class="tool-name">Twitter Lists</span>
+                                </div>
+                                <div class="tool-item">
+                                    <span class="tool-icon">📚</span>
+                                    <span class="tool-name">Pocket</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Actions -->
+                        <section class="actions-section reveal">
+                            <h3>Actions</h3>
+                            <div class="action-buttons">
+                                <a href="mailto:contacte@nboulange.work?subject=Veille Cybersécurité" class="btn primary">Partager cette veille</a>
+                                <a href="index.html#contact" class="btn ghost">Me contacter</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <span class="brand-mark">⚡</span>
+                        <span class="brand-text">Nathan BOULANGE</span>
+                    </div>
+                    <p class="footer-role">Étudiant BTS SIO SISR</p>
+                    <p class="footer-description">Passionné d'infrastructure, réseau et sécurité</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html#a-propos">À propos</a></li>
+                            <li><a href="index.html#competences">Compétences</a></li>
+                            <li><a href="index.html#veilles">Veilles</a></li>
+                            <li><a href="index.html#projets">Projets</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Projets E6</h4>
+                        <ul>
+                            <li><a href="projects/ad-gpo.html">AD + GPO</a></li>
+                            <li><a href="projects/vlan-firewall.html">VLAN + Firewall</a></li>
+                            <li><a href="projects/pw-rotation.html">Rotation MDP</a></li>
+                            <li><a href="projects/backup-restore.html">Backup + PRA</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:contacte@nboulange.work">contacte@nboulange.work</a></li>
+                            <li><a href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noreferrer noopener" aria-label="Profil LinkedIn de Nathan BOULANGE">LinkedIn</a></li>
+                            <li><span>France</span></li>
+                            <li><span>BTS SIO SISR 2024-2025</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
