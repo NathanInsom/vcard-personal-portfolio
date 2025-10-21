@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Création d'un SVI — Nathan BOULANGE</title>
+    <meta name="description" content="Processus de création d'un SVI avec 3CX - Compétence SISR" />
+    <meta name="author" content="Nathan BOULANGE" />
+    <meta name="theme-color" content="#0b0e13" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <style>
+        .process-steps {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .step-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-header h2 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .step-content p {
+            color: #b8c5d1;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .step-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .step-content li {
+            color: #b8c5d1;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .photo-placeholder {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .photo-placeholder p {
+            color: #8a9ba8;
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .competences-section {
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+        
+        .competences-section h2 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .competence-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .competence-tags .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .actions-section {
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .step-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .step-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .competence-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="../index.html" class="brand" aria-label="Retour à l'accueil">
+                <span class="brand-mark">⚡</span>
+                <span class="brand-text">nboulange.work</span>
+            </a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="project-hero section">
+            <div class="container">
+                <div class="project-hero-content reveal">
+                    <div class="breadcrumb">
+                        <a href="../index.html#projets">← Retour aux compétences</a>
+                    </div>
+                    <span class="overline">Compétence SISR</span>
+                    <h1>Création d'un SVI avec 3CX</h1>
+                    <p class="hero-subtitle">Processus de déploiement d'un <strong>Système Vocal Interactif</strong> pour centraliser l'accueil téléphonique</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"></div>
+
+        <section class="project-content section">
+            <div class="container">
+                <div class="process-steps">
+                    
+                    <!-- Étape 1 -->
+                    <div class="step-card reveal">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h2>Réunion avec la direction et les pôles</h2>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Objectif :</strong> Définir l'architecture du SVI et les règles de routage</p>
+                            <ul>
+                                
+                                <li>Définition des noms de groupes de centres</li>
+                                <li>Hiérarchisation des services (priorité d'appel)</li>
+                                <li>Définition des délais d'attente avant transfert</li>
+                                <li>Validation des messages d'accueil par service</li>
+                            </ul>
+                            <div class="photo-placeholder">
+                                <p>📸 <em>Photo à ajouter </em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="step-card reveal">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h2>Enregistrement des messages vocaux</h2>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Recrutement d'un volontaire</strong> pour l'enregistrement des messages du SVI</p>
+                            <ul>
+                                <li>Ecrirer un texte afin d'enregistrer les messages vocaux</li>
+                                <li>Choisir une personne volontaire pour enregistrer les messages vocaux</li>
+                                <li>Enregistrer les messages vocaux</li>
+                                <li>Convertion des fichiers m4a en waw</li>
+                            </ul>
+                            <div class="photo-placeholder">
+                                <img src="https://i.postimg.cc/htf8N57B/image.png" alt="Enregistrement des messages vocaux SVI" style="max-width: 100%; height: auto; border-radius: 8px;" />
+                                <p><em>Enregistrement des messages vocaux</em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="step-card reveal">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h2>Configuration des files d'attente dans 3CX</h2>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Paramétrage des files d'attente</strong> avec les spécifications définies en réunion</p>
+                            <ul>
+                                <li>Création des files par service (Commercial, Technique, Admin)</li>
+                                <li>Configuration des <strong>SDA</strong> (Seuils de Délai d'Attente)</li>
+                                <li>Paramétrage des délais avant transfert automatique</li>
+                          
+                                <li>Définition des annonces de position dans la file</li>
+                            </ul>
+                            <div class="photo-placeholder">
+                                <p>📸 <em>Photo à ajouter </em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="step-card reveal">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h2>Configuration du routage et des agents</h2>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Mise en place du routage hiérarchique</strong> et attribution des agents</p>
+                            <ul>
+                                <li>Configuration du menu principal du SVI</li>
+                                <li>Routage vers les files d'attente appropriées</li>
+                                <li>Attribution des agents aux bonnes files selon leur service</li>
+                                <li>Configuration des horaires de disponibilité</li>
+                                <li>Paramétrage des notifications d'appels</li>
+                            </ul>
+                            <div class="photo-placeholder">
+                                <p>📸 <em>Photo à ajouter </em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Étape 5 -->
+                    <div class="step-card reveal">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h2>Tests et déploiement</h2>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Validation du système</strong> et mise en production</p>
+                            <ul>
+                                <li>Tests de routage complet (appel → SVI → file → agent)</li>
+                                <li>Validation des délais et transferts automatiques</li>
+                                <li>Tests avec les agents concernés</li>
+                                <li>Mise en production et monitoring</li>
+                            </ul>
+                            <div class="photo-placeholder">
+                                <p>📸 <em>Photo à ajouter</em></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Compétences SISR -->
+                <section class="competences-section reveal">
+                    <h2>Compétences SISR validées</h2>
+                    <div class="competence-tags">
+                        <span class="tag">A4.1.2 - VoIP</span>
+                        <span class="tag">A4.1.3 - Serveur téléphonie</span>
+                        <span class="tag">A5.1.4 - Routage communications</span>
+                    </div>
+                </section>
+
+                <!-- Actions -->
+                <section class="actions-section reveal">
+                    <div class="action-buttons">
+                        <a href="../index.html#projets" class="btn primary">Retour aux compétences</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <span class="brand-mark">⚡</span>
+                        <span class="brand-text">Nathan BOULANGE</span>
+                    </div>
+                    <p class="footer-role">Étudiant BTS SIO SISR</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
