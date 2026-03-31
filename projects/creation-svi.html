@@ -1,448 +1,269 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Création d'un SVI — Nathan BOULANGE</title>
-    <meta name="description" content="Mise en place d’un SVI avec 3CX : contexte, objectifs, architecture, configuration et tests pour l’épreuve E6 (SISR)." />
-    <meta name="author" content="Nathan BOULANGE" />
-    <meta name="theme-color" content="#0b0e13" />
+    <meta name="description" content="Mise en place d'un SVI avec 3CX : contexte, objectifs, architecture, configuration et tests pour l'épreuve E6 (SISR)." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/style.css?v=20260331-1" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260331-2" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>&#x26A1;</text></svg>">
     <style>
-        .process-steps {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        
-        .step-card {
-            background: var(--bg-elev, #ffffff);
-            border: 1px solid rgba(209, 213, 219, 0.9);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.25s ease;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            width: 6px;
-            background: linear-gradient(180deg, var(--primary, #2563eb), var(--accent, #0ea5e9));
-            opacity: 0.9;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
-        }
-        
-        .step-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            gap: 1rem;
-        }
-        
-        .step-number {
-            background: linear-gradient(135deg, var(--primary, #2563eb) 0%, var(--accent, #0ea5e9) 100%);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            flex-shrink: 0;
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
-        }
-        
-        .step-header h2 {
-            margin: 0;
-            color: var(--text, #111827);
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .step-content p {
-            color: var(--muted, #374151);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-        
-        .step-content ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .step-content li {
-            color: var(--muted, #4a5568);
-            margin-bottom: 0.5rem;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-        
-        .photo-placeholder {
-            background: #f9fafb;
-            border: 2px dashed rgba(37, 99, 235, 0.25);
-            border-radius: 12px;
-            padding: 1.25rem;
-            text-align: center;
-            margin-top: 1.5rem;
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-        }
-        
-        .photo-placeholder p {
-            color: #6b7280;
-            font-style: italic;
-            margin: 0;
-            font-weight: 500;
-        }
-        
-        .competences-section,
-        .results-section,
-        .actions-section {
-            max-width: 860px;
-            margin: 3rem auto;
-        }
-        
-        .competences-section h2,
-        .results-section h2 {
-            color: #111827;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .competence-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        
-        .competence-tags .tag {
-            background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
-            color: white;
-            padding: 0.6rem 1.4rem;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
-        }
-        
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .result-card {
-            background: #ffffff;
-            border-radius: 14px;
-            border: 1px solid rgba(209, 213, 219, 0.9);
-            padding: 1.25rem 1.5rem;
-            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-        }
-        
-        .result-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #6b7280;
-            margin-bottom: 0.4rem;
-        }
-        
-        .result-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #111827;
-        }
-        
-        .result-note {
-            margin-top: 0.35rem;
-            font-size: 0.9rem;
-            color: #4b5563;
-        }
-        
-        .actions-section {
-            text-align: center;
-        }
-        
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        @media (max-width: 768px) {
-            .step-card {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .step-header {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-            
-            .step-header h2 {
-                font-size: 1.3rem;
-            }
-            
-            .competence-tags {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
+      .project-hero { background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 60%, #f3f4f6 100%); border-bottom: 1px solid var(--border); padding: 64px 0 48px; }
+      .project-hero-content { max-width: 780px; }
+      .project-hero h1 { font-size: clamp(26px, 4vw, 40px); letter-spacing: -0.02em; margin: 12px 0 16px; color: var(--text); line-height: 1.2; }
+      .hero-subtitle { font-size: 17px; color: var(--muted); line-height: 1.7; margin: 0 0 20px; }
+      .project-info-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+      .info-pill { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; background: #ffffff; border: 1px solid var(--border); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--text); box-shadow: 0 1px 3px rgba(15,23,42,.06); }
+      .process-steps { max-width: 860px; margin: 0 auto; display: grid; gap: 20px; padding: 1rem 0; }
+      .step-card { background: #ffffff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 28px 28px 36px; box-shadow: 0 4px 16px rgba(15,23,42,.06); position: relative; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+      .step-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(15,23,42,.10); }
+      .step-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(180deg, var(--primary, #2563eb), var(--accent, #0ea5e9)); border-radius: 16px 0 0 16px; }
+      .step-card.context-card::before { background: linear-gradient(180deg, #2563eb, #0ea5e9); }
+      .step-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+      .step-number { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #0ea5e9)); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; box-shadow: 0 6px 16px rgba(37,99,235,.25); }
+      .step-header h2 { margin: 0; font-size: 18px; font-weight: 700; color: var(--text); }
+      .step-content p { color: var(--muted); font-size: 15px; line-height: 1.7; margin: 0 0 12px; }
+      .step-content p strong { color: var(--text); }
+      .step-content ul { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 6px; }
+      .step-content li { color: var(--muted); font-size: 14px; line-height: 1.55; }
+      .photo-placeholder { background: #f9fafb; border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-align: center; margin-top: 1.5rem; }
+      .photo-placeholder p { color: var(--muted); font-style: italic; margin: 0; font-size: 13px; }
+      .photo-placeholder img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem; display: block; }
+      .competences-section { max-width: 860px; margin: 0 auto 48px; }
+      .competences-section h2 { font-size: 22px; font-weight: 700; color: var(--text); margin: 0 0 16px; }
+      .competence-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+      .competence-tags .tag { background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #0ea5e9)); color: #fff; padding: 7px 16px; border-radius: 999px; font-weight: 500; font-size: 13px; box-shadow: 0 4px 12px rgba(37,99,235,.22); border: none; }
+      .results-section { max-width: 860px; margin: 48px auto 0; }
+      .results-section h2 { font-size: 22px; font-weight: 700; margin: 0 0 20px; color: var(--text); }
+      .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .result-card { background: #ffffff; border: 1px solid var(--border); border-top: 3px solid var(--primary, #2563eb); border-radius: 14px; padding: 20px; box-shadow: 0 4px 14px rgba(15,23,42,.06); }
+      .result-label { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+      .result-value { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+      .result-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
+      .actions-section { max-width: 860px; margin: 48px auto 0; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+      @media (max-width: 700px) { .results-grid { grid-template-columns: 1fr; } .step-card { padding: 20px 20px 20px 28px; } }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Aller au contenu</a>
-
     <header class="site-header">
-        <div class="container header-inner">
-            <a href="../index.html" class="brand" aria-label="Retour à l'accueil">
-                <span class="brand-mark">⚡</span>
-                <span class="brand-text">nboulange.work</span>
-            </a>
-        </div>
+      <div class="container header-inner">
+        <a href="../index.html" class="brand" aria-label="Retour à l'accueil">
+          <span class="brand-mark">&#x26A1;</span>
+          <span class="brand-text">nboulange.work</span>
+        </a>
+      </div>
     </header>
 
     <main id="main">
-        <section class="project-hero section">
-            <div class="container">
-                <div class="project-hero-content reveal">
-                    <div class="breadcrumb">
-                        <a href="../index.html#projets">← Retour aux compétences</a>
-                    </div>
-                    <span class="overline">Compétence SISR</span>
-                    <h1>Création d'un SVI avec 3CX</h1>
-                    <p class="hero-subtitle">Processus de déploiement d'un <strong>Système Vocal Interactif</strong> pour centraliser l'accueil téléphonique</p>
-                </div>
+      <section class="project-hero">
+        <div class="container">
+          <div class="project-hero-content reveal">
+            <div class="breadcrumb"><a href="../index.html#projets">&#x2190; Retour aux projets</a></div>
+            <span class="overline">Compétence E6 — SISR · VoIP &amp; Téléphonie</span>
+            <h1>Création d'un SVI avec 3CX</h1>
+            <p class="hero-subtitle">Déploiement d'un <strong>Système Vocal Interactif sous 3CX</strong> pour centraliser l'accueil téléphonique et orienter automatiquement les appelants vers le bon service.</p>
+            <div class="project-info-bar">
+              <span class="info-pill">&#x1F4C5; 2024</span>
+              <span class="info-pill">&#x1F3E2; Alternance — Entreprise</span>
+              <span class="info-pill">&#x260E;&#xFE0F; 3CX PBX</span>
+              <span class="info-pill">&#x1F4DE; Numéro vert</span>
+              <span class="info-pill">&#x1F508; Messages vocaux</span>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <div class="section-divider" aria-hidden="true"></div>
+      <div class="section-divider" aria-hidden="true"></div>
 
-        <section class="project-content section">
-            <div class="container">
-                <!-- Compétences SISR -->
-                <section class="competences-section reveal" style="margin-top: 0;">
-                    <h2>Compétences SISR mobilisées</h2>
-                    <div class="competence-tags">
-                        <span class="tag">A4.1.2 – Exploitation de services VoIP</span>
-                        <span class="tag">A4.1.3 – Administration d’un serveur de téléphonie</span>
-                        <span class="tag">A4.2.1 – Analyse et prise en compte des besoins</span>
-                        <span class="tag">A5.1.4 – Gestion du routage des communications</span>
-                    </div>
-                </section>
+      <section class="project-content section">
+        <div class="container">
 
-                <!-- Bloc synthèse projet -->
-                <div class="process-steps reveal">
-                    <div class="step-card" style="margin-bottom: 3rem;">
-                        <div class="step-header">
-                            <div class="step-number">0</div>
-                            <h2>Contexte et objectif du projet</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>Contexte :</strong> L’entreprise souhaite professionnaliser l’accueil téléphonique en évitant que les appels arrivent directement sur les postes des collaborateurs.</p>
-                            <p><strong>Objectif :</strong> Mettre en place un <strong>Système Vocal Interactif (SVI) sous 3CX</strong> qui oriente automatiquement les appelants vers le bon service (commercial, technique, administratif), tout en contrôlant les temps d’attente.</p>
-                            <ul>
-                                <li>Centraliser l’entrée des appels sur un numéro unique.</li>
-                                <li>Donner un parcours clair à l’appelant (menu vocal simple et compréhensible).</li>
-                                <li>Réduire les erreurs de transfert et les temps d’attente inutiles.</li>
-                                <li>Poser les bases pour un suivi des performances (temps d’attente, nombre d’appels décrochés).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-steps">
-                    
-                    <!-- Étape 1 -->
-                    <div class="step-card reveal">
-                        <div class="step-header">
-                            <div class="step-number">1</div>
-                            <h2>Réunion avec la direction et les pôles</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>But de l’étape :</strong> cadrer le besoin métier avant toute configuration technique et définir précisément le déroulé du SVI.</p>
-                            <ul>
-                                <li>Cartographier les différents services joignables par téléphone (siège, agences, services support).</li>
-                                <li>Définir l’ordre d’appel des sites dans le SVI (qui sonne en premier, puis en second, etc.).</li>
-                                <li>Choisir le comportement en cas de non-réponse : bascule en boucle sur les autres sites ou message vocal.</li>
-                                <li>Fixer les durées de sonnerie et les délais avant passage au message / à la file d’attente.</li>
-                                <li>Valider le ton, le vocabulaire et les messages d’accueil avec les différentes parties prenantes du siège.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Étape 2 -->
-                    <div class="step-card reveal">
-                        <div class="step-header">
-                            <div class="step-number">2</div>
-                            <h2>Enregistrement des messages vocaux</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>But de l’étape :</strong> obtenir des messages clairs, cohérents et de bonne qualité sonore.</p>
-                            <ul>
-                                <li>Rédaction des scripts des messages (accueil, attente, fermeture, erreur de saisie).</li>
-                                <li>Sélection d’une personne volontaire avec une diction claire pour les enregistrements.</li>
-                                <li>Enregistrement des messages dans un environnement calme.</li>
-                                <li>Conversion des fichiers audio (m4a → wav) au format accepté par 3CX.</li>
-                            </ul>
-                            <div class="photo-placeholder">
-                                <img src="https://i.postimg.cc/htf8N57B/image.png" alt="Enregistrement des messages vocaux SVI" style="max-width: 100%; height: auto; border-radius: 8px;" />
-                                <p><em>Enregistrement des messages vocaux</em></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Étape 3 -->
-                    <div class="step-card reveal">
-                        <div class="step-header">
-                            <div class="step-number">3</div>
-                            <h2>Configuration des files d'attente dans 3CX</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>But de l’étape :</strong> traduire le besoin métier en paramètres concrets dans 3CX.</p>
-                            <ul>
-                                <li>Création des files d’attente par service (Commercial, Technique, Administratif).</li>
-                                <li>Configuration des seuils de délai d’attente (temps maximum avant action).</li>
-                                <li>Paramétrage des renvois automatiques (vers une autre file, messagerie, ou renvoi d’appel).</li>
-                                <li>Ajout des annonces de position dans la file pour informer l’appelant.</li>
-                            </ul>
-                            <div class="photo-placeholder">
-                                <img src="../assets/img/svi-etape3.png"
-                                     alt="Paramétrage des files d’attente dans 3CX pour chaque service"
-                                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
-                                <p><em>Écran de configuration des files d’attente dans 3CX (services et paramètres associés).</em></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Étape 4 -->
-                    <div class="step-card reveal">
-                        <div class="step-header">
-                            <div class="step-number">4</div>
-                            <h2>Configuration du routage et des agents</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>But de l’étape :</strong> s’assurer que chaque appel est pris en charge par le bon interlocuteur.</p>
-                            <ul>
-                                <li>Création du menu vocal (ex : “1 pour le commercial, 2 pour le support technique…”).</li>
-                                <li>Association de chaque choix de menu à la bonne file d’attente.</li>
-                                <li>Attribution des agents aux files correspondant à leur service.</li>
-                                <li>Définition des horaires d’ouverture (accueil différent en dehors des heures).</li>
-                                <li>Paramétrage des notifications d’appels manqués pour suivi par les équipes.</li>
-                            </ul>
-                            <div class="photo-placeholder">
-                                <img src="../assets/img/svi-etape4.png"
-                                     alt="Routage des appels du SVI vers les bonnes files et agents"
-                                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
-                                <p><em>Paramétrage du menu vocal et du routage des appels vers les files d’attente et agents.</em></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Étape 5 -->
-                    <div class="step-card reveal">
-                        <div class="step-header">
-                            <div class="step-number">5</div>
-                            <h2>Tests et déploiement</h2>
-                        </div>
-                        <div class="step-content">
-                            <p><strong>But de l’étape :</strong> vérifier le bon fonctionnement avant d’exposer le SVI aux clients.</p>
-                            <ul>
-                                <li>Tests de bout en bout (appel externe → SVI → file → agent).</li>
-                                <li>Vérification des délais d’attente et des renvois automatiques.</li>
-                                <li>Recette avec un panel d’agents (retours utilisateurs internes).</li>
-                                <li>Mise en production puis monitoring les premiers jours (remontées et ajustements).</li>
-                            </ul>
-                            <div class="photo-placeholder">
-                                <img src="../assets/img/svi-etape5.png"
-                                     alt="Tableau de test et de suivi des appels après mise en production du SVI"
-                                     style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
-                                <p><em>Suivi des tests et des premiers appels pour valider le bon fonctionnement du SVI.</em></p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Résultats et apports -->
-                <section class="results-section reveal">
-                    <h2>Résultats et apports pour l’entreprise</h2>
-                    <div class="results-grid">
-                        <div class="result-card">
-                            <div class="result-label">Taux de décrochés</div>
-                            <div class="result-value">Amélioré</div>
-                            <p class="result-note">Grâce au routage en cascade entre les sites, il y a moins d’appels perdus en journée.</p>
-                        </div>
-                        <div class="result-card">
-                            <div class="result-label">Orientation des appels</div>
-                            <div class="result-value">Plus fiable</div>
-                            <p class="result-note">Les appelants arrivent plus facilement au bon service via le menu vocal.</p>
-                        </div>
-                        <div class="result-card">
-                            <div class="result-label">Charge des collaborateurs</div>
-                            <div class="result-value">Allégée</div>
-                            <p class="result-note">Les équipes ont moins de transferts manuels et moins d’appels “hors périmètre” à gérer.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Actions -->
-                <section class="actions-section reveal">
-                    <div class="action-buttons">
-                        <a href="../index.html#projets" class="btn primary">Retour aux compétences</a>
-                    </div>
-                </section>
+          <section class="competences-section reveal" style="margin-top:0;">
+            <h2>Compétences SISR mobilisées</h2>
+            <div class="competence-tags">
+              <span class="tag">A4.1.2 – Exploitation de services VoIP</span>
+              <span class="tag">A4.1.3 – Administration d'un serveur de téléphonie</span>
+              <span class="tag">A4.2.1 – Analyse et prise en compte des besoins</span>
+              <span class="tag">A5.1.4 – Gestion du routage des communications</span>
             </div>
-        </section>
+          </section>
+
+          <div class="process-steps reveal">
+            <div class="step-card context-card">
+              <div class="step-header">
+                <div class="step-number">0</div>
+                <h2>Contexte et objectif du projet</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>Contexte :</strong> L'entreprise souhaite professionnaliser l'accueil téléphonique en évitant que les appels arrivent directement sur les postes des collaborateurs.</p>
+                <p><strong>Objectif :</strong> Mettre en place un <strong>Système Vocal Interactif (SVI) sous 3CX</strong> qui oriente automatiquement les appelants vers le bon service, tout en contrôlant les temps d'attente.</p>
+                <ul>
+                  <li>Centraliser l'entrée des appels sur un numéro unique.</li>
+                  <li>Donner un parcours clair à l'appelant (menu vocal simple et compréhensible).</li>
+                  <li>Réduire les erreurs de transfert et les temps d'attente inutiles.</li>
+                  <li>Poser les bases pour un suivi des performances (temps d'attente, appels décrochés).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-steps" style="margin-top:0;">
+            <div class="step-card reveal">
+              <div class="step-header"><div class="step-number">1</div><h2>Réunion avec la direction et les pôles</h2></div>
+              <div class="step-content">
+                <p><strong>But de l'étape :</strong> cadrer le besoin métier avant toute configuration technique et définir précisément le déroulé du SVI.</p>
+                <ul>
+                  <li>Cartographier les différents services joignables par téléphone (siège, agences, services support).</li>
+                  <li>Définir l'ordre d'appel des sites dans le SVI (qui sonne en premier, puis en second, etc.).</li>
+                  <li>Choisir le comportement en cas de non-réponse : bascule en boucle sur les autres sites ou message vocal.</li>
+                  <li>Fixer les durées de sonnerie et les délais avant passage au message / à la file d'attente.</li>
+                  <li>Valider le ton, le vocabulaire et les messages d'accueil avec les différentes parties prenantes du siège.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card reveal">
+              <div class="step-header"><div class="step-number">2</div><h2>Enregistrement des messages vocaux</h2></div>
+              <div class="step-content">
+                <p><strong>But de l'étape :</strong> obtenir des messages clairs, cohérents et de bonne qualité sonore.</p>
+                <ul>
+                  <li>Rédaction des scripts des messages (accueil, attente, fermeture, erreur de saisie).</li>
+                  <li>Sélection d'une personne volontaire avec une diction claire pour les enregistrements.</li>
+                  <li>Enregistrement des messages dans un environnement calme.</li>
+                  <li>Conversion des fichiers audio (m4a → wav) au format accepté par 3CX.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="https://i.postimg.cc/htf8N57B/image.png" alt="Enregistrement des messages vocaux SVI" />
+                  <p>Enregistrement des messages vocaux pour le SVI.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-card reveal">
+              <div class="step-header"><div class="step-number">3</div><h2>Configuration des files d'attente dans 3CX</h2></div>
+              <div class="step-content">
+                <p><strong>But de l'étape :</strong> traduire le besoin métier en paramètres concrets dans 3CX.</p>
+                <ul>
+                  <li>Création des files d'attente par service (Commercial, Technique, Administratif).</li>
+                  <li>Configuration des seuils de délai d'attente (temps maximum avant action).</li>
+                  <li>Paramétrage des renvois automatiques (vers une autre file, messagerie, ou renvoi d'appel).</li>
+                  <li>Ajout des annonces de position dans la file pour informer l'appelant.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/svi-etape3.png" alt="Paramétrage des files d'attente dans 3CX" />
+                  <p>Écran de configuration des files d'attente dans 3CX (services et paramètres associés).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-card reveal">
+              <div class="step-header"><div class="step-number">4</div><h2>Configuration du routage et des agents</h2></div>
+              <div class="step-content">
+                <p><strong>But de l'étape :</strong> s'assurer que chaque appel est pris en charge par le bon interlocuteur.</p>
+                <ul>
+                  <li>Création du menu vocal (ex : "1 pour le commercial, 2 pour le support technique…").</li>
+                  <li>Association de chaque choix de menu à la bonne file d'attente.</li>
+                  <li>Attribution des agents aux files correspondant à leur service.</li>
+                  <li>Définition des horaires d'ouverture (accueil différent en dehors des heures).</li>
+                  <li>Paramétrage des notifications d'appels manqués pour suivi par les équipes.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/svi-etape4.png" alt="Routage des appels du SVI vers les bonnes files et agents" />
+                  <p>Paramétrage du menu vocal et du routage des appels vers les files d'attente et agents.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-card reveal">
+              <div class="step-header"><div class="step-number">5</div><h2>Tests et déploiement</h2></div>
+              <div class="step-content">
+                <p><strong>But de l'étape :</strong> vérifier le bon fonctionnement avant d'exposer le SVI aux clients.</p>
+                <ul>
+                  <li>Tests de bout en bout (appel externe → SVI → file → agent).</li>
+                  <li>Vérification des délais d'attente et des renvois automatiques.</li>
+                  <li>Recette avec un panel d'agents (retours utilisateurs internes).</li>
+                  <li>Mise en production puis monitoring les premiers jours (remontées et ajustements).</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/svi-etape5.png" alt="Suivi des tests et premiers appels SVI" />
+                  <p>Suivi des tests et des premiers appels pour valider le bon fonctionnement du SVI.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <section class="results-section reveal">
+            <h2>Résultats et apports pour l'entreprise</h2>
+            <div class="results-grid">
+              <div class="result-card">
+                <div class="result-label">Taux de décrochés</div>
+                <div class="result-value">Amélioré</div>
+                <p class="result-note">Grâce au routage en cascade entre les sites, il y a moins d'appels perdus en journée.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Orientation des appels</div>
+                <div class="result-value">Plus fiable</div>
+                <p class="result-note">Les appelants arrivent plus facilement au bon service via le menu vocal.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Charge des collaborateurs</div>
+                <div class="result-value">Allégée</div>
+                <p class="result-note">Les équipes ont moins de transferts manuels et moins d'appels "hors périmètre" à gérer.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="actions-section reveal">
+            <a href="../index.html#projets" class="btn ghost">&#x2190; Retour aux projets</a>
+            <a href="../index.html#contact" class="btn primary">Me contacter</a>
+          </section>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-main">
-                    <div class="footer-brand">
-                        <span class="brand-mark">⚡</span>
-                        <span class="brand-text">Nathan BOULANGE</span>
-                    </div>
-                    <p class="footer-role">Étudiant BTS SIO SISR</p>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-brand"><span class="brand-mark">&#x26A1;</span><span class="brand-text">Nathan BOULANGE</span></div>
+            <p class="footer-role">Étudiant BTS SIO SISR · Alternance</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Projets E6</h4>
+              <ul>
+                <li><a href="ad-gpo.html">Campagne Phishing</a></li>
+                <li><a href="creation-svi.html">Création SVI</a></li>
+                <li><a href="pw-rotation.html">Serveur Passbolt</a></li>
+                <li><a href="truenas-t640.html">TrueNAS T640</a></li>
+              </ul>
             </div>
-            <div class="footer-bottom">
-                <p>© <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+            <div class="footer-section">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="../index.html#a-propos">À propos</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../mentions-legales.html">Mentions légales</a></li>
+              </ul>
             </div>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&#169; <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+          <a href="../index.html" class="footer-back">&#x2191; Retour à l'accueil</a>
+        </div>
+      </div>
     </footer>
 
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
     <script src="../assets/js/main.js"></script>
-</body>
+  </body>
 </html>
-
-
-
-
-

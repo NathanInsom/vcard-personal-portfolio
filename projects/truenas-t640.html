@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation TrueNAS sur PowerEdge T640 — Nathan BOULANGE</title>
+    <meta name="description" content="Installation et configuration d'un serveur NAS TrueNAS SCALE sur un Dell PowerEdge T640 : pools ZFS, partages réseau, snapshots et supervision (E6 SISR)." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260331-2" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>&#x26A1;</text></svg>">
+    <style>
+      /* ── Variables locales ── */
+      :root {
+        --accent-project: #f59e0b;
+        --accent-project-light: #fef3c7;
+        --accent-project-border: #fde68a;
+      }
+
+      /* ── Hero projet ── */
+      .project-hero {
+        background: linear-gradient(135deg, #fffbeb 0%, #f0f9ff 60%, #f3f4f6 100%);
+        border-bottom: 1px solid var(--border);
+        padding: 64px 0 48px;
+      }
+      .project-hero-content { max-width: 780px; }
+      .project-hero h1 {
+        font-size: clamp(26px, 4vw, 40px);
+        letter-spacing: -0.02em;
+        margin: 12px 0 16px;
+        color: var(--text);
+        line-height: 1.2;
+      }
+      .hero-subtitle {
+        font-size: 17px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0 0 28px;
+      }
+
+      /* ── Info bar ── */
+      .project-info-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      .info-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 6px 14px;
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        box-shadow: 0 1px 3px rgba(15,23,42,.06);
+      }
+      .info-pill-icon { font-size: 15px; }
+
+      /* ── Compétences ── */
+      .competences-section {
+        max-width: 860px;
+        margin: 0 auto 48px;
+      }
+      .competences-section h2 {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 16px;
+      }
+      .competence-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .competence-tags .tag {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        color: #ffffff;
+        padding: 7px 16px;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 13px;
+        box-shadow: 0 4px 12px rgba(37,99,235,.22);
+        border: none;
+      }
+
+      /* ── Steps ── */
+      .process-steps {
+        max-width: 860px;
+        margin: 0 auto;
+        display: grid;
+        gap: 24px;
+      }
+
+      .step-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 28px 28px 36px;
+        box-shadow: 0 4px 16px rgba(15,23,42,.06);
+        position: relative;
+        overflow: hidden;
+        transition: transform .2s, box-shadow .2s;
+      }
+      .step-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(15,23,42,.10);
+      }
+      .step-card::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--primary), var(--accent));
+        border-radius: 16px 0 0 16px;
+      }
+      .step-card.context-card::before {
+        background: linear-gradient(180deg, var(--accent-project), #fb923c);
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .step-number {
+        width: 46px; height: 46px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 800;
+        flex-shrink: 0;
+        box-shadow: 0 6px 16px rgba(37,99,235,.25);
+      }
+      .step-card.context-card .step-number {
+        background: linear-gradient(135deg, var(--accent-project), #fb923c);
+        box-shadow: 0 6px 16px rgba(245,158,11,.3);
+      }
+      .step-header h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .step-body p {
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0 0 12px;
+      }
+      .step-body p strong { color: var(--text); }
+      .step-body ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        display: grid;
+        gap: 6px;
+      }
+      .step-body li {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      /* ── Image dans step ── */
+      .step-image {
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 4px 14px rgba(15,23,42,.07);
+      }
+      .step-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .step-image-caption {
+        padding: 8px 12px;
+        background: #f9fafb;
+        font-size: 12px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        font-style: italic;
+      }
+
+      .photo-placeholder {
+        margin-top: 20px;
+        padding: 16px;
+        background: #f9fafb;
+        border: 2px dashed color-mix(in hsl, var(--primary) 25%, var(--border));
+        border-radius: 10px;
+        text-align: center;
+      }
+      .photo-placeholder p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      /* ── Résultats ── */
+      .results-section {
+        max-width: 860px;
+        margin: 48px auto 0;
+      }
+      .results-section h2 {
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 20px;
+        color: var(--text);
+      }
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      @media (max-width: 700px) { .results-grid { grid-template-columns: 1fr; } }
+
+      .result-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 4px 14px rgba(15,23,42,.06);
+        border-top: 3px solid var(--accent-project);
+      }
+      .result-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+        color: var(--muted);
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .result-value {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .result-note {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* ── Actions ── */
+      .actions-section {
+        max-width: 860px;
+        margin: 48px auto 0;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 768px) {
+        .step-card { padding: 20px 20px 20px 28px; }
+        .project-hero { padding: 48px 0 36px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="../index.html" class="brand" aria-label="Retour à l'accueil">
+          <span class="brand-mark">&#x26A1;</span>
+          <span class="brand-text">nboulange.work</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ═══ HERO ═══ -->
+      <section class="project-hero">
+        <div class="container">
+          <div class="project-hero-content reveal">
+            <div class="breadcrumb">
+              <a href="../index.html#projets">&#x2190; Retour aux projets</a>
+            </div>
+            <span class="overline">Compétence E6 — SISR · Stockage &amp; Serveurs</span>
+            <h1>Installation d'un serveur NAS TrueNAS<br>sur Dell PowerEdge T640</h1>
+            <p class="hero-subtitle">Déploiement et configuration d'un <strong>serveur de stockage centralisé TrueNAS SCALE</strong> sur un serveur rack Dell PowerEdge T640 — mise en place des pools ZFS, partages réseau SMB/NFS, snapshots automatiques et supervision.</p>
+
+            <div class="project-info-bar">
+              <span class="info-pill"><span class="info-pill-icon">&#x1F4C5;</span> 2025</span>
+              <span class="info-pill"><span class="info-pill-icon">&#x1F3E2;</span> Alternance — Entreprise</span>
+              <span class="info-pill"><span class="info-pill-icon">&#x1F5A5;&#xFE0F;</span> Dell PowerEdge T640</span>
+              <span class="info-pill"><span class="info-pill-icon">&#x1F4BE;</span> TrueNAS SCALE</span>
+              <span class="info-pill"><span class="info-pill-icon">&#x1F4CA;</span> ZFS · SMB · NFS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ═══ CONTENU ═══ -->
+      <section class="project-content section">
+        <div class="container">
+
+          <!-- Compétences SISR -->
+          <section class="competences-section reveal">
+            <h2>Compétences SISR mobilisées</h2>
+            <div class="competence-tags">
+              <span class="tag">A2.2.1 – Installation de serveurs</span>
+              <span class="tag">A3.2.3 – Administration du stockage</span>
+              <span class="tag">A4.1.3 – Administration d'un serveur</span>
+              <span class="tag">A5.1.3 – Mise en place de mesures de sécurité</span>
+            </div>
+          </section>
+
+          <!-- Étape 0 : Contexte -->
+          <div class="process-steps">
+            <div class="step-card context-card reveal">
+              <div class="step-header">
+                <div class="step-number">0</div>
+                <h2>Contexte et objectif du projet</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>Contexte :</strong> L'entreprise disposait d'un serveur Dell PowerEdge T640 sous-utilisé. Les fichiers des équipes étaient stockés de manière disparate (postes locaux, clés USB, partages improvisés), sans politique de sauvegarde ni contrôle des accès.</p>
+                <p><strong>Objectif :</strong> Installer et configurer <strong>TrueNAS SCALE</strong> sur ce serveur afin de centraliser le stockage, garantir la résilience des données via ZFS, et mettre en place des partages réseau sécurisés accessibles depuis tous les postes.</p>
+                <ul>
+                  <li>Centraliser le stockage des données métier sur une infrastructure dédiée et fiable.</li>
+                  <li>Assurer la résilience des données grâce à ZFS (RAID-Z, checksums, snapshots).</li>
+                  <li>Fournir des partages réseau SMB (Windows) et NFS (Linux/VMs) selon les besoins.</li>
+                  <li>Mettre en place des snapshots automatiques pour la reprise après incident.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Étapes 1–5 -->
+          <div class="process-steps" style="margin-top: 24px;">
+
+            <!-- Étape 1 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">1</div>
+                <h2>Préparation du matériel — Dell PowerEdge T640</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>But de l'étape :</strong> préparer le serveur physique pour accueillir TrueNAS dans les meilleures conditions, avec une configuration RAID adaptée au stockage ZFS.</p>
+                <ul>
+                  <li>Inventaire du matériel : processeurs, barrettes RAM, disques durs installés, carte réseau.</li>
+                  <li>Accès à l'interface <strong>iDRAC</strong> (Integrated Dell Remote Access Controller) pour la gestion hors-bande.</li>
+                  <li>Configuration du contrôleur RAID en mode <em>HBA passthrough</em> (JBOD) pour laisser TrueNAS/ZFS gérer directement les disques — indispensable pour que ZFS fonctionne correctement.</li>
+                  <li>Vérification de l'état SMART de chaque disque avant installation.</li>
+                  <li>Préparation d'une clé USB bootable TrueNAS SCALE (via Rufus/Balena Etcher).</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <p>Captures : interface iDRAC, configuration contrôleur PERC en HBA, résultat SMART des disques.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">2</div>
+                <h2>Installation de TrueNAS SCALE</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>But de l'étape :</strong> installer TrueNAS SCALE sur un disque dédié au système (séparé des disques de données) et effectuer la configuration réseau initiale.</p>
+                <ul>
+                  <li>Boot sur la clé USB TrueNAS SCALE et lancement de l'installeur.</li>
+                  <li>Sélection du disque système dédié (SSD ou disque séparé des pools de données).</li>
+                  <li>Définition du mot de passe administrateur.</li>
+                  <li>Premier démarrage et accès à l'interface web TrueNAS (port 443/HTTPS).</li>
+                  <li>Configuration réseau : adresse IP fixe, passerelle, DNS, nom d'hôte.</li>
+                  <li>Mise à jour du système vers la dernière version stable.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <p>Captures : écran d'installation TrueNAS, premier accès à l'interface web, configuration réseau.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">3</div>
+                <h2>Création des pools ZFS et des datasets</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>But de l'étape :</strong> structurer le stockage de façon résiliente et organisée grâce à ZFS, en choisissant la topologie RAID adaptée aux disques disponibles.</p>
+                <ul>
+                  <li>Création du pool de stockage principal en <strong>RAID-Z1</strong> (équivalent RAID 5, tolérance à 1 disque défaillant) ou <strong>RAID-Z2</strong> selon le nombre de disques.</li>
+                  <li>Activation des fonctionnalités ZFS : checksums, compression (LZ4), déduplication si pertinent.</li>
+                  <li>Création des <strong>datasets</strong> par usage : <code>data/commun</code>, <code>data/backups</code>, <code>data/vms</code>…</li>
+                  <li>Configuration des quotas par dataset pour éviter la saturation.</li>
+                  <li>Mise en place des <strong>snapshots automatiques</strong> (toutes les heures / journaliers / hebdomadaires) via les tâches planifiées TrueNAS.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <p>Captures : création du pool ZFS, vue des datasets, configuration des snapshots.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">4</div>
+                <h2>Configuration des partages réseau SMB et NFS</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>But de l'étape :</strong> rendre les données accessibles aux postes Windows via SMB et aux serveurs Linux/VMs via NFS, avec contrôle des accès.</p>
+                <ul>
+                  <li>Création des partages <strong>SMB</strong> (Samba) pointant vers les datasets — accès depuis les postes Windows.</li>
+                  <li>Intégration optionnelle à l'<strong>Active Directory</strong> pour une authentification centralisée (utilisateurs AD dans TrueNAS).</li>
+                  <li>Création des partages <strong>NFS</strong> pour les hyperviseurs et serveurs Linux avec restriction par IP/réseau.</li>
+                  <li>Test d'accès depuis plusieurs postes : montage du lecteur réseau Windows, montage NFS depuis une VM.</li>
+                  <li>Vérification des droits lecture/écriture et des permissions POSIX/ACL sur les datasets.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <p>Captures : configuration partage SMB, test montage réseau Windows, partage NFS actif.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 5 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">5</div>
+                <h2>Supervision, alertes et documentation</h2>
+              </div>
+              <div class="step-body">
+                <p><strong>But de l'étape :</strong> s'assurer que le serveur est surveillé, que les anomalies remontent rapidement, et que la solution est documentée pour la continuité d'exploitation.</p>
+                <ul>
+                  <li>Configuration des <strong>alertes email</strong> TrueNAS : état des pools, dégradation RAID, température des disques, espace restant.</li>
+                  <li>Activation des tests <strong>SMART</strong> automatiques (court hebdomadaire, long mensuel) avec notification en cas d'erreur.</li>
+                  <li>Mise en place d'un <strong>scrub ZFS</strong> mensuel pour vérifier l'intégrité des données.</li>
+                  <li>Test de restauration depuis un snapshot pour valider la procédure de reprise.</li>
+                  <li>Rédaction d'une <strong>documentation d'exploitation</strong> : architecture, pools, datasets, partages, procédure de remplacement d'un disque défaillant.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <p>Captures : tableau de bord TrueNAS, alertes configurées, résultat scrub ZFS, extrait documentation.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Résultats -->
+          <section class="results-section reveal">
+            <h2>Résultats et apports pour l'entreprise</h2>
+            <div class="results-grid">
+              <div class="result-card">
+                <div class="result-label">Stockage des données</div>
+                <div class="result-value">Centralisé</div>
+                <p class="result-note">Les fichiers métier ne sont plus dispersés sur les postes locaux — un seul point d'accès, sécurisé et sauvegardé.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Résilience des données</div>
+                <div class="result-value">Renforcée (RAID-Z)</div>
+                <p class="result-note">La topologie ZFS RAID-Z tolère la perte d'un disque sans perte de données, avec checksums automatiques.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Reprise après incident</div>
+                <div class="result-value">Facilitée</div>
+                <p class="result-note">Les snapshots ZFS horaires permettent de restaurer un fichier ou un dataset en quelques minutes.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Actions -->
+          <section class="actions-section reveal">
+            <a href="../index.html#projets" class="btn ghost">&#x2190; Retour aux projets</a>
+            <a href="../index.html#contact" class="btn primary">Me contacter</a>
+          </section>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <span class="brand-mark">&#x26A1;</span>
+              <span class="brand-text">Nathan BOULANGE</span>
+            </div>
+            <p class="footer-role">Étudiant BTS SIO SISR · Alternance</p>
+            <p class="footer-description">Infrastructure, réseau, sécurité et automatisation</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-section">
+              <h4>Projets E6</h4>
+              <ul>
+                <li><a href="ad-gpo.html">Campagne Phishing</a></li>
+                <li><a href="creation-svi.html">Création SVI</a></li>
+                <li><a href="pw-rotation.html">Serveur Passbolt</a></li>
+                <li><a href="truenas-t640.html">TrueNAS T640</a></li>
+              </ul>
+            </div>
+            <div class="footer-section">
+              <h4>Navigation</h4>
+              <ul>
+                <li><a href="../index.html#a-propos">À propos</a></li>
+                <li><a href="../index.html#competences">Compétences</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="../mentions-legales.html">Mentions légales</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&#169; <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR · Hébergé par Cloudflare</p>
+          <a href="../index.html" class="footer-back">&#x2191; Retour à l'accueil</a>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

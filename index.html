@@ -5,44 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Nathan BOULANGE — Portfolio BTS SIO SISR</title>
-    <meta name="description" content="Portfolio de Nathan BOULANGE — BTS SIO SISR: compétences, projets E6, réseau, systèmes, sécurité et automatisation." />
+    <meta name="description" content="Portfolio de Nathan BOULANGE — BTS SIO SISR en alternance : projets E6, réseau, sécurité, virtualisation et automatisation." />
     <meta name="author" content="Nathan BOULANGE" />
-    <meta name="theme-color" content="#0b0e13" />
+    <meta name="theme-color" content="#f3f4f6" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Nathan BOULANGE — Portfolio BTS SIO SISR" />
-    <meta property="og:description" content="Compétences SISR, projets E6 documentés, réseau, systèmes, sécurité, automatisation." />
+    <meta property="og:description" content="Projets E6 documentés, compétences SISR, réseau, sécurité et automatisation." />
     <meta property="og:image" content="assets/img/monavatar.png" />
     <meta property="og:locale" content="fr_FR" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Nathan BOULANGE — Portfolio BTS SIO SISR" />
-    <meta name="twitter:description" content="Compétences SISR, projets E6 documentés, réseau, systèmes, sécurité, automatisation." />
-    <meta name="twitter:image" content="assets/img/monavatar.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <link rel="stylesheet" href="./assets/css/style.css?v=20260331-2" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>&#x26A1;</text></svg>">
   </head>
   <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Aller au contenu</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#main" class="brand" aria-label="Aller au début du contenu">
-          <span class="brand-mark">⚡</span>
+        <a href="#main" class="brand" aria-label="Retour au début">
+          <span class="brand-mark">&#x26A1;</span>
           <span class="brand-text">nboulange.work</span>
         </a>
 
         <nav class="nav" aria-label="Navigation principale">
-          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Changer le thème (clair/sombre)">
-            <span class="theme-icon" data-light aria-hidden="true">🌙</span>
-            <span class="theme-icon" data-dark aria-hidden="true">☀️</span>
-          </button>
-          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
           <ul id="primary-menu" class="nav-list">
             <li><a href="#a-propos">À propos</a></li>
             <li><a href="#competences">Compétences</a></li>
@@ -53,109 +42,172 @@
           </ul>
         </nav>
 
-
+        <div class="header-actions">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main id="main">
+
+      <!-- ═══ HERO ═══ -->
       <section class="hero section">
+        <div class="hero-dot-grid" aria-hidden="true"></div>
         <div class="container grid-2">
           <div class="hero-text reveal">
+            <div class="hero-status">
+              <span class="status-dot"></span>
+              <span>Disponible en alternance · 2025</span>
+            </div>
             <span class="overline">Portfolio BTS SIO — SISR</span>
-            <h1>BTS SIO SISR</h1>
-            <p class="subtitle">Salut ! Je suis <strong>Nathan</strong>, étudiant en <strong>BTS SIO - SISR</strong>. Passionné d’infra, réseau et sécurité, je conçois des systèmes fiables, documentés et sécurisés.</p>
+            <h1>Bonjour, je suis<br><span class="hero-name">Nathan Boulange</span></h1>
+            <p class="subtitle">Étudiant en <strong>BTS SIO option SISR</strong> en alternance. J'administre, sécurise et automatise des infrastructures réseaux et systèmes, avec le souci du détail et de la documentation.</p>
             <div class="chips">
-              <span class="chip">Infra</span>
-              <span class="chip">Réseau</span>
-              <span class="chip">Sécurité</span>
+              <span class="chip">Infrastructure</span>
+              <span class="chip">Cybersécurité</span>
               <span class="chip">Automatisation</span>
+              <span class="chip">Linux / Windows</span>
             </div>
             <div class="hero-cta">
-              <a class="btn primary" href="#competences">Voir mes compétences</a>
-              <a class="btn ghost" href="#a-propos">En savoir plus</a>
+              <a class="btn primary" href="#projets">Voir mes projets E6</a>
+              <a class="btn ghost" href="#a-propos">À propos</a>
             </div>
           </div>
           <div class="hero-art reveal delay-1" aria-hidden="true">
             <div class="circle"></div>
             <div class="blob"></div>
             <div class="mesh"></div>
+            <div class="hero-orb"></div>
           </div>
         </div>
       </section>
 
       <div class="section-divider" aria-hidden="true"></div>
 
-      <section id="a-propos" class="section about">
+      <!-- ═══ STATS RAPIDES ═══ -->
+      <section class="section section-alt stats-section">
         <div class="container">
-          <div class="about-wrapper">
-            <div class="about-content">
-              <span class="overline reveal">Qui je suis</span>
-              <h2 class="reveal">À propos</h2>
-              <div class="about-intro reveal delay-1">
-                <img class="about-photo" src="assets/img/monavatar.png" alt="Nathan BOULANGE" />
-                <div class="about-text">
-                  <h3>Nathan BOULANGE</h3>
-                  <p class="about-role">Étudiant BTS SIO SISR</p>
-                  <p class="about-description">Curieux et orienté solution, j'aime automatiser, documenter et renforcer la résilience des systèmes. Mon approche combine rigueur technique et vision pragmatique.</p>
-                  <div class="social-links">
-                    <a class="social linkedin" href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noreferrer noopener" aria-label="Profil LinkedIn de Nathan BOULANGE">
-                      <span class="social-icon" aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.81 2.67 4.81 6.15V23h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23h-4V8z"/>
-                        </svg>
-                      </span>
-                      <span class="social-text">LinkedIn</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="about-skills reveal delay-2">
-                <div class="skill-item">
-                  <span class="skill-icon">🔧</span>
-                  <span>Administration systèmes et réseaux</span>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-icon">⚡</span>
-                  <span>Automatisation avec scripts et outils DevOps</span>
-                </div>
-                <div class="skill-item">
-                  <span class="skill-icon">📚</span>
-                  <span>Documentation claire et partage de connaissances</span>
-                </div>
-              </div>
-              <div class="about-cta reveal delay-3">
-                <a class="btn primary" href="#projets">Voir mes projets</a>
-                <a class="btn ghost" href="#veilles">Mes veilles</a>
-              </div>
+          <div class="stats-grid reveal">
+            <div class="stat-block">
+              <span class="stat-num">4</span>
+              <span class="stat-label">Projets E6 documentés</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Certifications obtenues</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Veilles actives</span>
+            </div>
+            <div class="stat-block">
+              <span class="stat-num">2</span>
+              <span class="stat-label">Ans d'alternance</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="competences" class="section skills">
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ═══ À PROPOS ═══ -->
+      <section id="a-propos" class="section about">
+        <div class="container">
+          <div class="about-grid">
+
+            <!-- Colonne gauche : texte -->
+            <div class="about-left">
+              <span class="overline reveal">Qui je suis</span>
+              <h2 class="reveal">À propos</h2>
+              <p class="about-description reveal delay-1">Curieux et orienté solution, je m'intéresse à tout ce qui touche à l'infrastructure, la sécurité et l'automatisation. En alternance, j'applique ces compétences sur des environnements réels chaque jour. Mon approche combine rigueur technique, documentation soignée et vision pragmatique du terrain.</p>
+
+              <div class="about-skills reveal delay-2">
+                <div class="skill-item">
+                  <span class="skill-icon-em" aria-hidden="true">&#x1F527;</span>
+                  <div>
+                    <strong>Administration systèmes &amp; réseaux</strong>
+                    <p>Linux, Windows Server, AD, VLAN, DNS/DHCP</p>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-em" aria-hidden="true">&#x26A1;</span>
+                  <div>
+                    <strong>Automatisation &amp; scripting</strong>
+                    <p>PowerShell, Bash, Python, outillage DevOps</p>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-icon-em" aria-hidden="true">&#x1F512;</span>
+                  <div>
+                    <strong>Sécurité &amp; conformité</strong>
+                    <p>Durcissement, phishing, RGPD, Passbolt, ANSSI</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-cta reveal delay-3">
+                <a class="btn primary" href="#projets">Voir mes projets E6</a>
+                <a class="social linkedin" href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn Nathan BOULANGE">
+                  <span class="social-icon" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.81 2.67 4.81 6.15V23h-4v-7.2c0-1.72-.03-3.93-2.4-3.93-2.4 0-2.77 1.87-2.77 3.8V23h-4V8z"/>
+                    </svg>
+                  </span>
+                  <span class="social-text">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Colonne droite : photo + info card -->
+            <div class="about-right reveal delay-1">
+              <div class="about-photo-card">
+                <img class="about-photo-large" src="assets/img/monavatar.png" alt="Nathan BOULANGE" />
+                <div class="about-info-card">
+                  <p class="about-name-big">Nathan BOULANGE</p>
+                  <p class="about-role">BTS SIO SISR · Alternance</p>
+                  <div class="about-tags">
+                    <span class="about-tag">Infra</span>
+                    <span class="about-tag">Réseau</span>
+                    <span class="about-tag">Sécurité</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <!-- ═══ COMPÉTENCES ═══ -->
+      <section id="competences" class="section skills section-alt">
         <div class="container">
           <span class="overline reveal">Ce que je sais faire</span>
-          <h2 class="reveal">Compétences</h2>
-          <p class="section-subtitle reveal">Un mix orienté SISR: réseau, systèmes, automatisation et sécurité.</p>
+          <h2 class="reveal">Compétences techniques</h2>
+          <p class="section-subtitle reveal">Un profil SISR orienté terrain : réseau, systèmes, sécurité, automatisation.</p>
           <div class="skills-grid">
             <article class="skill-card glass reveal">
               <div class="skill-head">
                 <div class="title">
                   <span class="skill-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="6" cy="12" r="3"></circle>
-                      <circle cx="18" cy="6" r="3"></circle>
-                      <circle cx="18" cy="18" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="6" r="3"></circle><circle cx="18" cy="18" r="3"></circle>
                       <path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4"/>
                     </svg>
                   </span>
-                  <h3>Réseau & Infra</h3>
+                  <h3>Réseau &amp; Infra</h3>
                 </div>
                 <span class="badge">SISR</span>
               </div>
-              <p>Routage, VLAN, DHCP/DNS, supervision et durcissement.</p>
-              <div class="meter" data-skill="85">
-                <span style="width: 85%"></span>
+              <p>Routage, VLAN, DHCP/DNS, supervision et durcissement. Équipements Aruba, UniFi.</p>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-fill="85"></div></div>
+                <span class="skill-bar-pct">85%</span>
               </div>
             </article>
 
@@ -164,17 +216,17 @@
                 <div class="title">
                   <span class="skill-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect>
-                      <path d="M8 20h8M12 16v4"/>
+                      <rect x="3" y="4" width="18" height="12" rx="2" ry="2"></rect><path d="M8 20h8M12 16v4"/>
                     </svg>
                   </span>
-                  <h3>Linux & Windows</h3>
+                  <h3>Linux &amp; Windows</h3>
                 </div>
                 <span class="badge">Admin</span>
               </div>
-              <p>Gestion utilisateurs, services, sauvegardes et monitoring.</p>
-              <div class="meter" data-skill="80">
-                <span style="width: 80%"></span>
+              <p>Active Directory, GPO, gestion utilisateurs, services systèmes, sauvegardes et monitoring.</p>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-fill="80"></div></div>
+                <span class="skill-bar-pct">80%</span>
               </div>
             </article>
 
@@ -183,17 +235,17 @@
                 <div class="title">
                   <span class="skill-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 17.5A4.5 4.5 0 0 0 17 9h-1.1A6 6 0 1 0 4 15.5"></path>
-                      <path d="M16 16h3M14 19h5"/>
+                      <path d="M20 17.5A4.5 4.5 0 0 0 17 9h-1.1A6 6 0 1 0 4 15.5"></path><path d="M16 16h3M14 19h5"/>
                     </svg>
                   </span>
                   <h3>Virtualisation</h3>
                 </div>
                 <span class="badge">DevOps</span>
               </div>
-              <p>VMware, Docker, XenOrchestra</p>
-              <div class="meter" data-skill="70">
-                <span style="width: 70%"></span>
+              <p>VMware, Docker, Xen Orchestra. Déploiement de VMs et conteneurs.</p>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-fill="70"></div></div>
+                <span class="skill-bar-pct">70%</span>
               </div>
             </article>
 
@@ -202,18 +254,17 @@
                 <div class="title">
                   <span class="skill-icon" aria-hidden="true">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M7 8l-4 4 4 4"/>
-                      <path d="M17 8l4 4-4 4"/>
-                      <path d="M14 4L10 20"/>
+                      <path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M14 4L10 20"/>
                     </svg>
                   </span>
                   <h3>Scripting</h3>
                 </div>
                 <span class="badge">Automatisation</span>
               </div>
-              <p>Bash, PowerShell, bases Python pour outillage.</p>
-              <div class="meter" data-skill="75">
-                <span style="width: 75%"></span>
+              <p>Bash, PowerShell, Python pour automatisation, scripts AD et outils de gestion.</p>
+              <div class="skill-bar-wrap">
+                <div class="skill-bar-track"><div class="skill-bar-fill" data-fill="75"></div></div>
+                <span class="skill-bar-pct">75%</span>
               </div>
             </article>
           </div>
@@ -222,43 +273,56 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
+      <!-- ═══ OUTILS ═══ -->
       <section id="outils" class="section tools">
         <div class="container">
           <span class="overline reveal">Stack</span>
-          <h2 class="reveal">Outils</h2>
-          <p class="section-subtitle reveal">Technos et plateformes que j’utilise régulièrement.</p>
+          <h2 class="reveal">Outils &amp; Technos</h2>
+          <p class="section-subtitle reveal">Plateformes et logiciels utilisés régulièrement en alternance et en TP.</p>
           <div class="tools-grid">
             <div class="tool-badge reveal" title="Active Directory">
               <img alt="AD" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" width="28" height="28" />
               <span>Active Directory</span>
             </div>
-            <div class="tool-badge reveal delay-2" title="Docker">
+            <div class="tool-badge reveal delay-1" title="Docker">
               <img alt="Docker" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="28" height="28" />
               <span>Docker</span>
             </div>
-            <div class="tool-badge reveal delay-3" title="PowerShell">
+            <div class="tool-badge reveal delay-2" title="PowerShell">
               <img alt="PowerShell" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/powershell/powershell-original.svg" width="28" height="28" />
               <span>PowerShell</span>
             </div>
-            <div class="tool-badge reveal delay-4" title="UniFi">
+            <div class="tool-badge reveal delay-3" title="GoPhish">
+              <img alt="GoPhish" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%23d44000'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23ffffff'>GoPhish</text></svg>" width="28" height="28" />
+              <span>GoPhish</span>
+            </div>
+            <div class="tool-badge reveal delay-3" title="Passbolt">
+              <img alt="Passbolt" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%23a51325'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='9' fill='%23ffffff'>Passbolt</text></svg>" width="28" height="28" />
+              <span>Passbolt</span>
+            </div>
+            <div class="tool-badge reveal delay-3" title="UniFi">
               <img alt="UniFi" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Ubiquiti_Networks_logo.svg" width="28" height="28" />
               <span>UniFi</span>
             </div>
-            <div class="tool-badge reveal delay-4" title="GLPI">
+            <div class="tool-badge reveal delay-3" title="GLPI">
               <img alt="GLPI" src="https://cdn.jsdelivr.net/npm/simple-icons@11/icons/glpi.svg" width="28" height="28" />
               <span>GLPI</span>
             </div>
-            <div class="tool-badge reveal delay-4" title="Xen Orchestra">
+            <div class="tool-badge reveal delay-3" title="Xen Orchestra">
               <img alt="Xen Orchestra" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%231a73e8'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' fill='%23ffffff'>XO</text></svg>" width="28" height="28" />
               <span>Xen Orchestra</span>
             </div>
-            <div class="tool-badge reveal delay-4" title="Aruba Networks">
-              <img alt="Aruba Networks" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%23ff6a00'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='12' fill='%23ffffff'>AR</text></svg>" width="28" height="28" />
-              <span>Aruba Networks</span>
-            </div>
-            <div class="tool-badge reveal delay-4" title="HPE Aruba">
+            <div class="tool-badge reveal delay-3" title="HPE Aruba">
               <img alt="HPE Aruba" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%2300735e'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='11' fill='%23ffffff'>HPE</text></svg>" width="28" height="28" />
               <span>HPE Aruba</span>
+            </div>
+            <div class="tool-badge reveal delay-3" title="Microsoft 365">
+              <img alt="Microsoft 365" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" width="28" height="28" />
+              <span>Microsoft 365</span>
+            </div>
+            <div class="tool-badge reveal delay-3" title="3CX">
+              <img alt="3CX" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><rect width='28' height='28' rx='6' fill='%230a7abf'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='11' fill='%23ffffff'>3CX</text></svg>" width="28" height="28" />
+              <span>3CX VoIP</span>
             </div>
           </div>
         </div>
@@ -266,17 +330,17 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
-      <section id="synthese" class="section synthesis">
+      <!-- ═══ TABLEAU DE SYNTHÈSE ═══ -->
+      <section id="synthese" class="section synthesis section-alt">
         <div class="container">
           <span class="overline reveal">BTS SIO</span>
-          <h2 class="reveal">Tableau de synthèse</h2>
-          <p class="section-subtitle reveal">Intégration du tableau Excel (E6).</p>
+          <h2 class="reveal">Tableau de synthèse E6</h2>
+          <p class="section-subtitle reveal">Récapitulatif des compétences travaillées et documentées pour l'épreuve E6.</p>
           <div class="synthesis-embed glass reveal" role="region" aria-label="Tableau de synthèse" id="synthesisEmbed">
             <div class="synthesis-placeholder">
-              <p class="muted">📁 Nathan Tableau de synthèse - Epreuve E4 - BTS SIO 2024</p>
+              <p class="muted">Nathan BOULANGE — Tableau de synthèse E6 — BTS SIO SISR 2025</p>
               <a class="btn small" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQJA5uGquWlWSOWBc9nm6apLPMR-nIC0eCzPIxIuxHwPjA0LOhDWGaNIEsAAxtqOrFCnfJeKKB3hzK/pubhtml?gid=380404330&single=true" target="_blank" rel="noreferrer noopener">Ouvrir le tableau</a>
             </div>
-            <!-- Si vous avez un lien Excel/OneDrive/Google Sheets avec l’option d’intégration, remplacez l’iframe ci-dessous -->
             <iframe title="Tableau de synthèse" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQJA5uGquWlWSOWBc9nm6apLPMR-nIC0eCzPIxIuxHwPjA0LOhDWGaNIEsAAxtqOrFCnfJeKKB3hzK/pubhtml?gid=380404330&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
           </div>
         </div>
@@ -284,11 +348,12 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
+      <!-- ═══ CERTIFICATIONS ═══ -->
       <section id="certifications" class="section certs">
         <div class="container">
           <span class="overline reveal">Parcours</span>
           <h2 class="reveal">Certifications</h2>
-          <p class="section-subtitle reveal">Des bases solides et des validations officielles pour le SISR.</p>
+          <p class="section-subtitle reveal">Des validations officielles qui renforcent le profil SISR.</p>
           <div class="certs-grid">
             <article class="cert-card glass reveal">
               <div class="cert-head">
@@ -301,7 +366,7 @@
               <p class="muted">Sensibilisation et bonnes pratiques de protection des données personnelles.</p>
               <div class="cert-meta"><span>2024</span><span class="tag">RGPD</span></div>
               <div class="cert-actions" style="margin-top:10px;">
-                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Preuve</a>
+                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Voir la preuve</a>
               </div>
             </article>
 
@@ -309,14 +374,14 @@
               <div class="cert-head">
                 <div class="title">
                   <img alt="ANSSI" src="https://cyber.gouv.fr/themes/open_theme/logo.svg" width="28" height="28" style="border-radius:4px;" />
-                  <h3>SecNum</h3>
+                  <h3>SecNumAcademie</h3>
                 </div>
                 <span class="badge">ANSSI</span>
               </div>
-              <p class="muted">Fondamentaux de cybersécurité et hygiène informatique.</p>
+              <p class="muted">Fondamentaux de la cybersécurité et hygiène informatique — formation officielle ANSSI.</p>
               <div class="cert-meta"><span>2024</span><span class="tag">Sécurité</span></div>
               <div class="cert-actions" style="margin-top:10px;">
-                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Preuve</a>
+                <a class="btn small" href="#" target="_blank" rel="noreferrer noopener">Voir la preuve</a>
               </div>
             </article>
           </div>
@@ -325,23 +390,23 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
-      <section id="veilles" class="section veilles">
+      <!-- ═══ VEILLES ═══ -->
+      <section id="veilles" class="section veilles section-alt">
         <div class="container">
           <span class="overline reveal">Veilles technologiques</span>
           <h2 class="reveal">Mes veilles</h2>
-          <p class="section-subtitle reveal">Suivi de l'actualité tech, sécurité et infrastructure pour rester à jour.</p>
-          
+          <p class="section-subtitle reveal">Suivi régulier de l'actualité tech, sécurité et infrastructure pour rester à jour.</p>
           <div class="veilles-grid">
             <article class="veille-card glass reveal">
               <div class="veille-header">
-                <div class="veille-icon">🔒</div>
+                <div class="veille-icon">&#x1F512;</div>
                 <div class="veille-meta">
-                  <h3>Cybersécurité & Infrastructure</h3>
+                  <h3>Cybersécurité &amp; Infrastructure</h3>
                   <span class="veille-badge">Sécurité</span>
                 </div>
               </div>
               <div class="veille-content">
-                <p class="veille-description">Veille sur les vulnérabilités, les bonnes pratiques de durcissement, et les évolutions des solutions de sécurité d'infrastructure.</p>
+                <p class="veille-description">Vulnérabilités CVE, bonnes pratiques de durcissement, évolutions des outils de sécurité pour les infras d'entreprise.</p>
                 <div class="veille-sources">
                   <span class="source-tag">CVE Database</span>
                   <span class="source-tag">ANSSI</span>
@@ -359,14 +424,14 @@
 
             <article class="veille-card glass reveal delay-1">
               <div class="veille-header">
-                <div class="veille-icon">🤖</div>
+                <div class="veille-icon">&#x1F916;</div>
                 <div class="veille-meta">
-                  <h3>IA & Monitoring</h3>
+                  <h3>IA &amp; Monitoring</h3>
                   <span class="veille-badge">IA</span>
                 </div>
               </div>
               <div class="veille-content">
-                <p class="veille-description">Suivi des usages de l'IA pour l'ITOps (AIOps), l'observabilité et la supervision: détection d'anomalies, corrélation d'événements, SLO/SLA.</p>
+                <p class="veille-description">Usages de l'IA pour l'ITOps (AIOps), l'observabilité et la supervision : détection d'anomalies, corrélation d'événements, SLO/SLA.</p>
                 <div class="veille-sources">
                   <span class="source-tag">OpenAI</span>
                   <span class="source-tag">Grafana</span>
@@ -387,119 +452,123 @@
 
       <div class="section-divider" aria-hidden="true"></div>
 
+      <!-- ═══ PROJETS E6 ═══ -->
       <section id="projets" class="section projects">
         <div class="container">
           <span class="overline reveal">Sélection E6</span>
           <h2 class="reveal">Compétences documentées</h2>
-          <p class="section-subtitle reveal">Fiches prêtes pour l’épreuve E6: contexte, objectifs, architecture, sécurité, résultats, preuves.</p>
+          <p class="section-subtitle reveal">Fiches complètes pour l'épreuve E6 : contexte, objectifs, étapes, captures et résultats.</p>
           <div class="projects-grid">
-            <article class="project-card glass reveal" data-project-id="ad-gpo">
+
+            <article class="project-card glass reveal" data-accent="danger">
               <div class="project-media">
-                <img src="https://images.ctfassets.net/5i1m3im8l2b5/3wIRSBd1uuCeOlSr34Snlq/22d42b323358ba2de10db9560a9393a3/10-tips-to-prevent-phishing.png?w=1200&h=630&q=50&fm=png" alt="Campagne de Phishing - 10 conseils de prévention" loading="lazy" decoding="async" width="800" height="450" />
+                <img src="https://images.ctfassets.net/5i1m3im8l2b5/3wIRSBd1uuCeOlSr34Snlq/22d42b323358ba2de10db9560a9393a3/10-tips-to-prevent-phishing.png?w=1200&h=630&q=50&fm=png" alt="Campagne de phishing interne" loading="lazy" decoding="async" width="800" height="450" />
                 <div class="media-overlay">
                   <header>
                     <h3>Campagne de Phishing</h3>
                     <span class="badge">Entreprise / 2025</span>
                   </header>
                   <div class="tags floating">
-                    <span class="tag">E6</span><span class="tag">SISR</span><span class="tag">Sécurité</span>
+                    <span class="tag">E6</span><span class="tag">GoPhish</span><span class="tag">Sécurité</span>
                   </div>
                 </div>
               </div>
-              <p class="muted">Objectif: centraliser l'authentification et standardiser la sécurité poste.</p>
+              <p class="muted">Simulation d'attaque interne avec GoPhish pour sensibiliser les collaborateurs.</p>
               <a class="btn small" href="projects/ad-gpo.html">Voir la fiche</a>
             </article>
 
-            <article class="project-card glass reveal delay-1" data-project-id="vlan-firewall">
+            <article class="project-card glass reveal delay-1" data-accent="primary">
               <div class="project-media">
-                <img src="https://sonate-studio.com/wp-content/uploads/2020/04/Message-SVI.jpg" alt="Création d'un SVI - Message de bienvenue" loading="lazy" decoding="async" width="800" height="450" />
+                <img src="https://sonate-studio.com/wp-content/uploads/2020/04/Message-SVI.jpg" alt="Création d'un SVI 3CX" loading="lazy" decoding="async" width="800" height="450" />
                 <div class="media-overlay">
                   <header>
-                    <h3>Création d'un SVI</h3>
+                    <h3>Création d'un SVI (3CX)</h3>
                     <span class="badge">Entreprise / 2024</span>
                   </header>
                   <div class="tags floating">
-                    <span class="tag">E6</span><span class="tag">Réseau</span><span class="tag">Firewall</span>
+                    <span class="tag">E6</span><span class="tag">VoIP</span><span class="tag">3CX</span>
                   </div>
                 </div>
               </div>
-              <p class="muted">Objectif: isoler les réseaux et contrôler les flux Est-Ouest.</p>
+              <p class="muted">Déploiement d'un serveur vocal interactif pour centraliser et orienter les appels entrants.</p>
               <a class="btn small" href="projects/creation-svi.html">Voir la fiche</a>
             </article>
 
-            <article class="project-card glass reveal delay-2" data-project-id="pw-rotation">
+            <article class="project-card glass reveal delay-2" data-accent="ok">
               <div class="project-media">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Rotation des mots de passe par script PowerShell" loading="lazy" decoding="async" width="800" height="450" />
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=800&auto=format&fit=crop" alt="Serveur de gestion de mots de passe Passbolt" loading="lazy" decoding="async" width="800" height="450" />
                 <div class="media-overlay">
                   <header>
-                    <h3>Serveur de gestion de mots de passe (Passbolt)</h3>
+                    <h3>Serveur Passbolt</h3>
                     <span class="badge">Entreprise / 2025</span>
                   </header>
                   <div class="tags floating">
-                    <span class="tag">E6</span><span class="tag">Sécurité</span><span class="tag">Passbolt</span>
+                    <span class="tag">E6</span><span class="tag">Passbolt</span><span class="tag">Sécurité</span>
                   </div>
                 </div>
               </div>
-              <p class="muted">Objectif: centraliser et sécuriser les mots de passe d’équipe via un coffre-fort Passbolt.</p>
+              <p class="muted">Centralisation et sécurisation des mots de passe d'équipe via un coffre-fort Passbolt auto-hébergé.</p>
               <a class="btn small" href="projects/pw-rotation.html">Voir la fiche</a>
             </article>
 
-            <article class="project-card glass reveal delay-3" data-project-id="backup-restore">
+            <article class="project-card glass reveal delay-3" data-accent="warn">
               <div class="project-media">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1518770660439-4636190af475?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1518770660439-4636190af475?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Sauvegardes et restauration testée" loading="lazy" decoding="async" width="800" height="450" />
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=800&auto=format&fit=crop" alt="Installation TrueNAS sur PowerEdge T640" loading="lazy" decoding="async" width="800" height="450" />
                 <div class="media-overlay">
                   <header>
-                    <h3>Sauvegardes + Restauration testée</h3>
-                    <span class="badge">Cours / 2025</span>
+                    <h3>TrueNAS sur PowerEdge T640</h3>
+                    <span class="badge">Entreprise / 2025</span>
                   </header>
                   <div class="tags floating">
-                    <span class="tag">E6</span><span class="tag">PRA</span><span class="tag">Backup</span>
+                    <span class="tag">E6</span><span class="tag">TrueNAS</span><span class="tag">Stockage</span>
                   </div>
                 </div>
               </div>
-              <p class="muted">Objectif: assurer la reprise après incident avec tests réguliers.</p>
-              <a class="btn small" href="projects/backup-restore.html">Voir la fiche</a>
+              <p class="muted">Installation et configuration d'un serveur NAS TrueNAS sur un Dell PowerEdge T640 pour la gestion centralisée du stockage.</p>
+              <a class="btn small" href="projects/truenas-t640.html">Voir la fiche</a>
             </article>
+
           </div>
         </div>
       </section>
 
       <div class="section-divider" aria-hidden="true"></div>
 
-      <section id="contact" class="section contact">
+      <!-- ═══ CONTACT ═══ -->
+      <section id="contact" class="section contact section-alt">
         <div class="container">
           <div class="contact-wrapper">
             <div class="contact-content">
               <span class="overline reveal">Me contacter</span>
-              <h2 class="reveal">Contact & alternance</h2>
+              <h2 class="reveal">Contact &amp; alternance</h2>
               <p class="contact-subtitle reveal">
-                Ouvert aux échanges pour des opportunités en infrastructure, réseau ou sécurité, en alternance ou premier poste.
+                Ouvert aux échanges pour des opportunités en infrastructure, réseau ou sécurité, en alternance ou premier poste. N'hésitez pas à me contacter.
               </p>
 
               <div class="contact-methods">
                 <div class="contact-item reveal">
-                  <div class="contact-icon" aria-hidden="true">📧</div>
+                  <div class="contact-icon" aria-hidden="true">&#x1F4E7;</div>
                   <div class="contact-info">
                     <h3>Email</h3>
-                    <p>Pour un premier échange ou un envoi d’offre.</p>
+                    <p>Pour un premier échange ou l'envoi d'une offre.</p>
                     <span class="contact-badge">Réponse rapide</span>
                   </div>
                 </div>
 
                 <div class="contact-item reveal delay-1">
-                  <div class="contact-icon" aria-hidden="true">💼</div>
+                  <div class="contact-icon" aria-hidden="true">&#x1F4BC;</div>
                   <div class="contact-info">
                     <h3>LinkedIn</h3>
-                    <p>Profil détaillé, expériences et recommandations.</p>
+                    <p>Profil complet, expériences et recommandations.</p>
                     <span class="contact-badge">Réseau pro</span>
                   </div>
                 </div>
 
                 <div class="contact-item reveal delay-2">
-                  <div class="contact-icon" aria-hidden="true">📄</div>
+                  <div class="contact-icon" aria-hidden="true">&#x1F4CB;</div>
                   <div class="contact-info">
                     <h3>Portfolio E6</h3>
-                    <p>Projets détaillés, schémas, scripts et procédures.</p>
+                    <p>Fiches projets, schémas, captures et procédures.</p>
                     <span class="contact-badge">Support jury</span>
                   </div>
                 </div>
@@ -507,7 +576,7 @@
 
               <div class="contact-cta">
                 <a class="btn primary" href="mailto:nathan.boulange@sio-sisr.example">
-                  M’écrire par email
+                  M'écrire par email
                 </a>
                 <a class="btn ghost" href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noreferrer noopener">
                   Voir mon LinkedIn
@@ -520,74 +589,53 @@
 
     </main>
 
-    <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-backdrop" data-close></div>
-      <div class="modal-dialog" role="document">
-        <button class="modal-close" aria-label="Fermer" data-close>✕</button>
-        <header class="modal-header">
-          <h3 id="modalTitle"></h3>
-          <div class="badge" id="modalContext"></div>
-        </header>
-        <div class="modal-content">
-          <div class="modal-row"><strong>Contexte</strong><p id="modalContexte" class="muted"></p></div>
-          <div class="modal-row"><strong>Objectif / Besoin</strong><p id="modalObjectif"></p></div>
-          <div class="modal-row"><strong>Architecture</strong><div id="modalArch" class="arch-diagram" aria-label="Schéma réseau simplifié"></div></div>
-          <div class="modal-row"><strong>Actions clés</strong><ul id="modalActions" class="bullets"></ul></div>
-          <div class="modal-row"><strong>Sécurité</strong><ul id="modalSecu" class="bullets"></ul></div>
-          <div class="modal-row"><strong>Résultats & indicateurs</strong><ul id="modalResults" class="bullets"></ul></div>
-          <div class="modal-row"><strong>Évidences</strong><ul id="modalEvidence" class="bullets"></ul></div>
-          <div class="modal-row"><strong>Compétences visées</strong><div id="modalTags" class="tags"></div></div>
-        </div>
-        <footer class="modal-footer">
-          <a id="modalDocLink" class="btn primary" href="#" target="_blank" rel="noreferrer noopener">Voir la documentation complète</a>
-        </footer>
-      </div>
-    </div>
-
     <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-main">
             <div class="footer-brand">
-              <span class="brand-mark">⚡</span>
+              <span class="brand-mark">&#x26A1;</span>
               <span class="brand-text">Nathan BOULANGE</span>
             </div>
-            <p class="footer-role">Étudiant BTS SIO SISR</p>
-            <p class="footer-description">Passionné d'infrastructure, réseau et sécurité</p>
+            <p class="footer-role">Étudiant BTS SIO SISR · Alternance</p>
+            <p class="footer-description">Infrastructure, réseau, sécurité et automatisation</p>
           </div>
-          
+
           <div class="footer-links">
             <div class="footer-section">
               <h4>Navigation</h4>
               <ul>
                 <li><a href="#a-propos">À propos</a></li>
                 <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
+                <li><a href="#projets">Projets E6</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="mentions-legales.html">Mentions légales</a></li>
               </ul>
             </div>
-            
+
             <div class="footer-section">
               <h4>Projets E6</h4>
               <ul>
-                <li><a href="projects/ad-gpo.html">AD + GPO</a></li>
-                <li><a href="projects/vlan-firewall.html">VLAN + Firewall</a></li>
-                <li><a href="projects/pw-rotation.html">Rotation MDP</a></li>
-                <li><a href="projects/backup-restore.html">Backup + PRA</a></li>
+                <li><a href="projects/ad-gpo.html">Campagne Phishing</a></li>
+                <li><a href="projects/creation-svi.html">Création SVI</a></li>
+                <li><a href="projects/pw-rotation.html">Serveur Passbolt</a></li>
+                <li><a href="projects/truenas-t640.html">TrueNAS T640</a></li>
               </ul>
             </div>
-            
           </div>
         </div>
-        
+
         <div class="footer-bottom">
-          <p>© <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+          <p>&#169; <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR · Hébergé par Cloudflare</p>
+          <a href="#main" class="footer-back">&#x2191; Retour en haut</a>
         </div>
       </div>
     </footer>
 
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
     <script src="assets/js/main.js"></script>
   </body>
-  </html>
-
-
+</html>

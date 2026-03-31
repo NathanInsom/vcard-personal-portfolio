@@ -1,24 +1,91 @@
-// Theme
-(function manageTheme() {
-  const root = document.documentElement;
-  const toggle = document.getElementById('themeToggle');
-  const stored = localStorage.getItem('theme');
-  // Default to dark if no stored preference
-  if (!stored) {
-    root.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark');
-  } else if (stored === 'dark') {
-    root.setAttribute('data-theme', 'dark');
-  } else {
-    root.setAttribute('data-theme', '');
+// Thème fixé au mode clair
+document.documentElement.removeAttribute('data-theme');
+localStorage.removeItem('theme');
+
+// ─── Scroll progress bar ───
+(function scrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  const header = document.querySelector('.site-header');
+  if (!bar) return;
+  function update() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+    if (header) header.classList.toggle('scrolled', scrollTop > 40);
   }
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const isDark = root.getAttribute('data-theme') === 'dark';
-      root.setAttribute('data-theme', isDark ? '' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// ─── Active nav link on scroll ───
+(function activeNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-list a[href^="#"]');
+  if (!sections.length || !links.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
     });
-  }
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => io.observe(s));
+})();
+
+// ─── Animated stat counters ───
+(function animateCounters() {
+  const blocks = document.querySelectorAll('.stat-num');
+  if (!blocks.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.textContent, 10);
+      if (isNaN(target)) return;
+      io.unobserve(el);
+      let start = 0;
+      const duration = 900;
+      const startTime = performance.now();
+      function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.5 });
+  blocks.forEach(b => io.observe(b));
+})();
+
+// ─── Skill bar animation ───
+(function animateSkillBars() {
+  const fills = document.querySelectorAll('.skill-bar-fill');
+  if (!fills.length) return;
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      io.unobserve(el);
+      const pct = el.getAttribute('data-fill') || '0';
+      setTimeout(() => { el.style.width = pct + '%'; }, 100);
+    });
+  }, { threshold: 0.4 });
+  fills.forEach(f => io.observe(f));
+})();
+
+// ─── Back to top ───
+(function backToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 })();
 
 // Mobile nav
