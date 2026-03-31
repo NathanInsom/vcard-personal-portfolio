@@ -3,127 +3,439 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infra AD DS + GPO baselines | Portfolio</title>
-    <meta name="description" content="Détails du projet AD DS + GPO baselines pour l'épreuve E6." />
+    <title>Campagne de phishing — Nathan BOULANGE</title>
+    <meta name="description" content="Mise en place d’une campagne de phishing interne : sensibilisation, scénarios d’attaque, collecte de résultats et actions de remédiation (E6 SISR)." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=20260331-1" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <style>
+      .process-steps {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2rem 0;
+      }
+
+      .step-card {
+        background: var(--bg-elev, #ffffff);
+        border: 1px solid rgba(209, 213, 219, 0.9);
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        transition: all 0.25s ease;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .step-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        width: 6px;
+        background: linear-gradient(180deg, var(--primary, #2563eb), var(--accent, #0ea5e9));
+        opacity: 0.9;
+      }
+
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+      }
+
+      .step-number {
+        background: linear-gradient(135deg, var(--primary, #2563eb) 0%, var(--accent, #0ea5e9) 100%);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
+      }
+
+      .step-header h2 {
+        margin: 0;
+        color: var(--text, #111827);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .step-content p {
+        color: var(--muted, #374151);
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        font-weight: 500;
+      }
+
+      .step-content ul {
+        margin: 1rem 0;
+        padding-left: 1.5rem;
+      }
+
+      .step-content li {
+        color: var(--muted, #4a5568);
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .photo-placeholder {
+        background: #f9fafb;
+        border: 2px dashed rgba(37, 99, 235, 0.25);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-align: center;
+        margin-top: 1.5rem;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      }
+
+      .photo-placeholder p {
+        color: #6b7280;
+        font-style: italic;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .competences-section,
+      .results-section,
+      .actions-section {
+        max-width: 860px;
+        margin: 3rem auto;
+      }
+
+      .competences-section h2,
+      .results-section h2 {
+        color: #111827;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .competence-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .competence-tags .tag {
+        background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+        color: white;
+        padding: 0.6rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+      }
+
+      .result-card {
+        background: #ffffff;
+        border-radius: 14px;
+        border: 1px solid rgba(209, 213, 219, 0.9);
+        padding: 1.25rem 1.5rem;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      }
+
+      .result-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #6b7280;
+        margin-bottom: 0.4rem;
+      }
+
+      .result-value {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #111827;
+      }
+
+      .result-note {
+        margin-top: 0.35rem;
+        font-size: 0.9rem;
+        color: #4b5563;
+      }
+
+      .actions-section {
+        text-align: center;
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      @media (max-width: 768px) {
+        .step-card {
+          padding: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .step-header {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5rem;
+        }
+
+        .step-header h2 {
+          font-size: 1.3rem;
+        }
+
+        .competence-tags {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Aller au contenu</a>
 
     <header class="site-header">
       <div class="container header-inner">
-        <a href="../index.html" class="brand" aria-label="Accueil">
+        <a href="../index.html" class="brand" aria-label="Retour à l'accueil">
           <span class="brand-mark">⚡</span>
           <span class="brand-text">nboulange.work</span>
         </a>
-        <nav class="nav" aria-label="Fil d'Ariane">
-          <ul class="nav-list">
-            <li><a href="../index.html#projets">← Retour aux projets</a></li>
-          </ul>
-        </nav>
-        <button class="theme-toggle" id="themeToggle" aria-label="Basculer thème">
-          <span class="theme-icon" data-light>☀️</span>
-          <span class="theme-icon" data-dark>🌙</span>
-        </button>
       </div>
     </header>
 
     <main id="main">
-      <section class="section">
+      <section class="project-hero section">
         <div class="container">
-          <div class="print-header" style="display:none">
-            <h1>Infra AD DS + GPO baselines</h1>
-            <div class="meta"><span>Nathan BOULANGE — Portfolio BTS SIO SISR</span><span>E6 — SISR</span></div>
+          <div class="project-hero-content reveal">
+            <div class="breadcrumb">
+              <a href="../index.html#projets">← Retour aux compétences</a>
+            </div>
+            <span class="overline">Compétence SISR</span>
+            <h1>Campagne de phishing interne</h1>
+            <p class="hero-subtitle">Conception et déploiement d’une <strong>campagne de phishing</strong> pour sensibiliser les utilisateurs et tester les réflexes de sécurité.</p>
           </div>
-          <div class="print-footer" style="display:none">
-            <span id="printDate"></span>
-            <span id="printUrl"></span>
-          </div>
-          <span class="overline">E6 — SISR</span>
-          <h1>Infra AD DS + GPO baselines</h1>
-          <p class="section-subtitle">Centraliser l’authentification et standardiser la sécurité poste.</p>
+        </div>
+      </section>
 
-          <div class="project-hero" style="margin-top:20px; border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow: var(--shadow);">
-            <div class="project-media" style="aspect-ratio:16/9; background:linear-gradient(180deg, color-mix(in hsl, var(--primary) 6%, transparent), transparent)">
-              <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=70&w=1280&auto=format&fit=crop" alt="Active Directory et GPO baselines" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <section class="project-content section">
+        <div class="container">
+          <!-- Compétences SISR -->
+          <section class="competences-section reveal" style="margin-top: 0;">
+            <h2>Compétences SISR mobilisées</h2>
+            <div class="competence-tags">
+              <span class="tag">A3.3 – Prise en compte du facteur humain</span>
+              <span class="tag">A4.2.1 – Analyse et formalisation d’un besoin</span>
+              <span class="tag">A5.1.3 – Mise en place de mesures de sécurité</span>
+              <span class="tag">A5.2.4 – Sensibilisation des utilisateurs</span>
+            </div>
+          </section>
+
+          <!-- Bloc synthèse projet -->
+          <div class="process-steps reveal">
+            <div class="step-card" style="margin-bottom: 3rem;">
+              <div class="step-header">
+                <div class="step-number">0</div>
+                <h2>Contexte et objectif du projet</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>Contexte :</strong> L’entreprise est régulièrement exposée aux risques de phishing (mails frauduleux, liens malveillants) et souhaite mesurer le niveau de vigilance de ses collaborateurs.</p>
+                <p><strong>Objectif :</strong> Concevoir et exécuter une <strong>campagne de phishing interne contrôlée</strong> afin de sensibiliser les utilisateurs et d’identifier les axes de progrès en matière de cybersécurité.</p>
+                <ul>
+                  <li>Simuler une attaque réaliste mais maîtrisée (sans impact réel sur les systèmes).</li>
+                  <li>Observer les comportements : clics, saisie d’identifiants, signalement du mail suspect.</li>
+                  <li>Préparer des actions de remédiation (communication, rappel des bonnes pratiques).</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          <div class="project-details" style="display:grid; grid-template-columns: 1.1fr 0.9fr; gap:20px; margin-top:20px;">
-            <article class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h2 style="margin-top:0">Résumé</h2>
-              <p>Mise en place d’un domaine Active Directory de lab avec OU, comptes et GPO baseline CIS afin d’uniformiser la sécurité et les configurations postes.</p>
-              <h3>Objectif</h3>
-              <p>Centraliser l’authentification et appliquer des politiques de sécurité standardisées.</p>
-              <h3>Contexte</h3>
-              <ul class="bullets">
-                <li>Cours | 2024</li>
-                <li>Réseau LAN 192.168.10.0/24</li>
-                <li>DNS intégré AD</li>
-              </ul>
-            </article>
-
-            <aside class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h3 style="margin-top:0">Architecture</h3>
-              <div class="arch-diagram" aria-label="Schéma simplifié" style="min-height:140px">Client W11 • DC01 (AD DS) • DNS AD</div>
-              <h3>Compétences</h3>
-              <div class="tags" style="margin-top:8px">
-                <span class="tag">E6</span><span class="tag">SISR</span><span class="tag">AD</span><span class="tag">GPO</span>
+          <div class="process-steps">
+            <!-- Étape 1 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">1</div>
+                <h2>Création de l’instance GoPhish</h2>
               </div>
-            </aside>
+              <div class="step-content">
+                <p><strong>But de l’étape :</strong> disposer d’un environnement dédié pour concevoir, envoyer et suivre la campagne de phishing.</p>
+                <ul>
+                  <li>Installation et configuration initiale de <strong>GoPhish</strong> comme plateforme de simulation de phishing.</li>
+                  <li>Sécurisation de l’accès à la console (compte administrateur, URL d’accès, mot de passe fort).</li>
+                  <li>Paramétrage de base : langue, fuseau horaire, vérification des paramètres SMTP.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/phish-etape1.png"
+                       alt="Tableau de bord GoPhish après création de l’instance"
+                       style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
+                  <p><em>Interface GoPhish utilisée pour piloter la campagne de phishing.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 2 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">2</div>
+                <h2>Adaptation de la sécurité Microsoft 365</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>But de l’étape :</strong> permettre aux mails de test d’arriver jusqu’aux boîtes des utilisateurs tout en restant dans un cadre maîtrisé.</p>
+                <ul>
+                  <li>Création d’une règle de transport dans <strong>Microsoft 365</strong> pour autoriser les mails issus de GoPhish.</li>
+                  <li>Définition du domaine d’envoi <strong>afpi-acmformation.fr</strong> pour coller à l’environnement réel de l’entreprise.</li>
+                  <li>Contrôles pour éviter le classement systématique en spam tout en gardant les protections de sécurité actives.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/phish-etape2.png"
+                       alt="Règle de transport Microsoft 365 permettant les mails de test GoPhish"
+                       style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
+                  <p><em>Règle M365 autorisant la délivrance contrôlée des mails de la campagne.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 3 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">3</div>
+                <h2>Préparation des cibles depuis l’Active Directory</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>But de l’étape :</strong> générer une liste de destinataires fiable à partir de l’AD, sans saisie manuelle.</p>
+                <ul>
+                  <li>Rédaction d’un <strong>script PowerShell</strong> pour interroger l’Active Directory.</li>
+                  <li>Récupération des comptes utilisateurs et de leurs adresses mail.</li>
+                  <li>Export au format attendu par GoPhish (CSV) puis import dans un “groupe de cibles”.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/phish-etape3.png"
+                       alt="Script PowerShell et liste des cibles importées dans GoPhish"
+                       style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
+                  <p><em>Script de récupération des utilisateurs AD et import dans le profil d’envoi GoPhish.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 4 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">4</div>
+                <h2>Création du mail et envoi de la campagne</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>But de l’étape :</strong> envoyer un mail de phishing réaliste à l’ensemble des cibles pour observer leurs réactions.</p>
+                <ul>
+                  <li>Création du modèle d’email de phishing dans GoPhish (objet, contenu, lien vers la page de simulation).</li>
+                  <li>Association du modèle au groupe de cibles issu de l’AD.</li>
+                  <li>Paramétrage de la campagne (expéditeur, domaine, suivi des clics et des soumissions).</li>
+                  <li>Lancement de la campagne et contrôle du bon départ des envois.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/phish-etape4.png"
+                       alt="Interface GoPhish montrant le mail de phishing configuré avant envoi"
+                       style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
+                  <p><em>Exemple du mail de phishing tel qu’il est reçu par les utilisateurs.</em></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Étape 5 -->
+            <div class="step-card reveal">
+              <div class="step-header">
+                <div class="step-number">5</div>
+                <h2>Analyse des résultats et bilan envoyé aux équipes</h2>
+              </div>
+              <div class="step-content">
+                <p><strong>But de l’étape :</strong> exploiter les résultats pour sensibiliser les utilisateurs et proposer des améliorations.</p>
+                <ul>
+                  <li>Consultation du tableau de bord GoPhish (clics, ouvertures, soumissions) sans exploiter de données nominatives.</li>
+                  <li>Identification des comportements à améliorer (ex : clic sans vérifier l’adresse, saisie d’identifiants).</li>
+                  <li>Rédaction et envoi d’un <strong>mail de bilan</strong> à l’ensemble des participants expliquant la démarche.</li>
+                  <li>Rappel des bonnes pratiques anti-phishing et des canaux de signalement proposés par l’IT.</li>
+                </ul>
+                <div class="photo-placeholder">
+                  <img src="../assets/img/phish-etape5.png"
+                       alt="Bilan de la campagne de phishing envoyé par mail aux collaborateurs"
+                       style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: .75rem;" />
+                  <p><em>Mail de bilan envoyé aux utilisateurs avec les résultats globaux et les bonnes pratiques à retenir.</em></p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="project-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:20px;">
-            <section class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h3 style="margin-top:0">Actions clés</h3>
-              <ul class="bullets">
-                <li>Promotion AD DS, création OU + comptes</li>
-                <li>GPO baselines (verrouillage, pare-feu, MDP)</li>
-                <li>Déploiement scripts de connexion</li>
-                <li>Sauvegarde état du système (wbadmin)</li>
-              </ul>
-            </section>
-            <section class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h3 style="margin-top:0">Sécurité</h3>
-              <ul class="bullets">
-                <li>Durcissement GPO (CIS baseline)</li>
-                <li>Journalisation avancée (Events/WinRM)</li>
-                <li>Contrôle des accès (ACL sur partages)</li>
-              </ul>
-            </section>
-            <section class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h3 style="margin-top:0">Résultats</h3>
-              <ul class="bullets">
-                <li>Réduction incidents login (-40%)</li>
-                <li>Temps de déploiement poste ≈ 15 min</li>
-                <li>Standardisation des configurations</li>
-              </ul>
-            </section>
-            <section class="glass" style="border:1px solid var(--border); border-radius:14px; padding:16px;">
-              <h3 style="margin-top:0">Évidences</h3>
-              <ul class="bullets">
-                <li>Captures GPMC + OU</li>
-                <li>Extrait script .ps1 de logon</li>
-                <li>Export des GPO (.html)</li>
-              </ul>
-            </section>
-          </div>
+          <!-- Résultats et apports -->
+          <section class="results-section reveal">
+            <h2>Résultats et apports pour l’entreprise</h2>
+            <div class="results-grid">
+              <div class="result-card">
+                <div class="result-label">Compréhension du risque</div>
+                <div class="result-value">Renforcée</div>
+                <p class="result-note">Les collaborateurs ont été confrontés à un cas concret de phishing, ce qui ancre mieux les messages de prévention.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Réflexes utilisateurs</div>
+                <div class="result-value">Évalués</div>
+                <p class="result-note">La campagne a permis d’identifier les bons réflexes (signalement, non-clic) et ceux à améliorer.</p>
+              </div>
+              <div class="result-card">
+                <div class="result-label">Plan d’actions</div>
+                <div class="result-value">Clarifié</div>
+                <p class="result-note">Les résultats ont servi de base pour proposer des actions de sensibilisation ciblées.</p>
+              </div>
+            </div>
+          </section>
 
-          <div style="margin-top:20px; display:flex; gap:12px;">
-            <a class="btn ghost" href="../index.html#projets">← Retour</a>
-            <button class="btn primary" onclick="window.print()">Exporter en PDF</button>
-          </div>
+          <!-- Actions -->
+          <section class="actions-section reveal">
+            <div class="action-buttons">
+              <a href="../index.html#projets" class="btn ghost">← Retour aux compétences</a>
+            </div>
+          </section>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>© <span id="year"></span> Nathan BOULANGE — BTS SIO SISR</p>
+        <div class="footer-content">
+          <div class="footer-main">
+            <div class="footer-brand">
+              <span class="brand-mark">⚡</span>
+              <span class="brand-text">Nathan BOULANGE</span>
+            </div>
+            <p class="footer-role">Étudiant BTS SIO SISR</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span id="year"></span> Nathan BOULANGE — Portfolio BTS SIO SISR</p>
+        </div>
       </div>
     </footer>
 

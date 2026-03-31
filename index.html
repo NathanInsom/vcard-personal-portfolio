@@ -28,12 +28,16 @@
 
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#" class="brand" aria-label="Accueil">
+        <a href="#main" class="brand" aria-label="Aller au début du contenu">
           <span class="brand-mark">⚡</span>
           <span class="brand-text">nboulange.work</span>
         </a>
 
         <nav class="nav" aria-label="Navigation principale">
+          <button id="themeToggle" class="theme-toggle" type="button" aria-label="Changer le thème (clair/sombre)">
+            <span class="theme-icon" data-light aria-hidden="true">🌙</span>
+            <span class="theme-icon" data-dark aria-hidden="true">☀️</span>
+          </button>
           <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Ouvrir le menu">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -42,8 +46,10 @@
           <ul id="primary-menu" class="nav-list">
             <li><a href="#a-propos">À propos</a></li>
             <li><a href="#competences">Compétences</a></li>
+            <li><a href="#synthese">Synthèse E6</a></li>
             <li><a href="#veilles">Veilles</a></li>
             <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
 
@@ -384,7 +390,7 @@
       <section id="projets" class="section projects">
         <div class="container">
           <span class="overline reveal">Sélection E6</span>
-          <h2 class="reveal">Compétences documentés</h2>
+          <h2 class="reveal">Compétences documentées</h2>
           <p class="section-subtitle reveal">Fiches prêtes pour l’épreuve E6: contexte, objectifs, architecture, sécurité, résultats, preuves.</p>
           <div class="projects-grid">
             <article class="project-card glass reveal" data-project-id="ad-gpo">
@@ -426,15 +432,15 @@
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=800&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=60&w=480&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=65&w=768&auto=format&fit=crop 768w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1024&auto=format&fit=crop 1024w, https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=70&w=1440&auto=format&fit=crop 1440w" sizes="(max-width: 600px) 100vw, (max-width: 1100px) 50vw, 25vw" alt="Rotation des mots de passe par script PowerShell" loading="lazy" decoding="async" width="800" height="450" />
                 <div class="media-overlay">
                   <header>
-                    <h3>Rotation mots de passe (PowerShell)</h3>
-                    <span class="badge">Pro / 2025</span>
+                    <h3>Serveur de gestion de mots de passe (Passbolt)</h3>
+                    <span class="badge">Entreprise / 2025</span>
                   </header>
                   <div class="tags floating">
-                    <span class="tag">E6</span><span class="tag">Automatisation</span><span class="tag">AD</span>
+                    <span class="tag">E6</span><span class="tag">Sécurité</span><span class="tag">Passbolt</span>
                   </div>
                 </div>
               </div>
-              <p class="muted">Objectif: automatiser la rotation sécurisée et tracer les changements.</p>
+              <p class="muted">Objectif: centraliser et sécuriser les mots de passe d’équipe via un coffre-fort Passbolt.</p>
               <a class="btn small" href="projects/pw-rotation.html">Voir la fiche</a>
             </article>
 
@@ -454,6 +460,60 @@
               <p class="muted">Objectif: assurer la reprise après incident avec tests réguliers.</p>
               <a class="btn small" href="projects/backup-restore.html">Voir la fiche</a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider" aria-hidden="true"></div>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <div class="contact-wrapper">
+            <div class="contact-content">
+              <span class="overline reveal">Me contacter</span>
+              <h2 class="reveal">Contact & alternance</h2>
+              <p class="contact-subtitle reveal">
+                Ouvert aux échanges pour des opportunités en infrastructure, réseau ou sécurité, en alternance ou premier poste.
+              </p>
+
+              <div class="contact-methods">
+                <div class="contact-item reveal">
+                  <div class="contact-icon" aria-hidden="true">📧</div>
+                  <div class="contact-info">
+                    <h3>Email</h3>
+                    <p>Pour un premier échange ou un envoi d’offre.</p>
+                    <span class="contact-badge">Réponse rapide</span>
+                  </div>
+                </div>
+
+                <div class="contact-item reveal delay-1">
+                  <div class="contact-icon" aria-hidden="true">💼</div>
+                  <div class="contact-info">
+                    <h3>LinkedIn</h3>
+                    <p>Profil détaillé, expériences et recommandations.</p>
+                    <span class="contact-badge">Réseau pro</span>
+                  </div>
+                </div>
+
+                <div class="contact-item reveal delay-2">
+                  <div class="contact-icon" aria-hidden="true">📄</div>
+                  <div class="contact-info">
+                    <h3>Portfolio E6</h3>
+                    <p>Projets détaillés, schémas, scripts et procédures.</p>
+                    <span class="contact-badge">Support jury</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-cta">
+                <a class="btn primary" href="mailto:nathan.boulange@sio-sisr.example">
+                  M’écrire par email
+                </a>
+                <a class="btn ghost" href="https://www.linkedin.com/in/boulangenathan/" target="_blank" rel="noreferrer noopener">
+                  Voir mon LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -503,6 +563,7 @@
                 <li><a href="#a-propos">À propos</a></li>
                 <li><a href="#competences">Compétences</a></li>
                 <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
             
